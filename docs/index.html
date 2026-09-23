@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Radar</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f2;--surface:#ffffff;--surface-2:#f0eee9;--text:#1c1b19;--muted:#6b6862;--line:#e3e0d9;
+  --accent:#2f5bd3;--accent-soft:#e6ecfb;
+  --t-world:#0f7b52;--t-world-bg:#e1f3ea;--t-apac:#7a4bc4;--t-apac-bg:#efe7fa;--t-visa:#b35a00;--t-visa-bg:#fbeedd;
+  --t-reg:#7a6a00;--t-reg-bg:#f6f1cf;--t-ind:#5a6470;--t-ind-bg:#e9ecef;--new:#d23c5a;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141413;--surface:#1d1c1a;--surface-2:#262522;--text:#ecebe7;--muted:#9c998f;--line:#33312d;
+  --accent:#7b9bff;--accent-soft:#232c45;
+  --t-world:#5fd3a0;--t-world-bg:#173226;--t-apac:#c3a2ff;--t-apac-bg:#2b2240;--t-visa:#ffb766;--t-visa-bg:#3a2a16;
+  --t-reg:#e3d36a;--t-reg-bg:#353117;--t-ind:#b5bec9;--t-ind-bg:#2a2e33;--new:#ff7b93;
+}}
+:root[data-theme="dark"]{
+  --bg:#141413;--surface:#1d1c1a;--surface-2:#262522;--text:#ecebe7;--muted:#9c998f;--line:#33312d;
+  --accent:#7b9bff;--accent-soft:#232c45;
+  --t-world:#5fd3a0;--t-world-bg:#173226;--t-apac:#c3a2ff;--t-apac-bg:#2b2240;--t-visa:#ffb766;--t-visa-bg:#3a2a16;
+  --t-reg:#e3d36a;--t-reg-bg:#353117;--t-ind:#b5bec9;--t-ind-bg:#2a2e33;--new:#ff7b93;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 16px 80px}
+header h1{margin:0;font-size:26px;letter-spacing:-.02em}
+header p{margin:4px 0 0;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;color:inherit;font:inherit}
+.stat[aria-pressed="true"]{outline:2px solid var(--accent)}
+.stat b{display:block;font-size:22px}
+.stat span{color:var(--muted);font-size:13px}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid var(--line)}
+input[type=search],select{background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:inherit;min-width:0}
+input[type=search]{flex:1 1 220px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.count{color:var(--muted);font-size:13px;margin:14px 0 8px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:1fr auto;gap:6px 16px}
+.card.applied{opacity:.55}
+.title{font-weight:600;font-size:16px;margin:0}
+.title a{color:inherit;text-decoration:none}.title a:hover{color:var(--accent);text-decoration:underline}
+.meta{color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:4px 12px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tag{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted)}
+.tier{font-weight:600}
+.tier.world{background:var(--t-world-bg);color:var(--t-world)}.tier.apac{background:var(--t-apac-bg);color:var(--t-apac)}
+.tier.visa{background:var(--t-visa-bg);color:var(--t-visa)}.tier.reg{background:var(--t-reg-bg);color:var(--t-reg)}.tier.ind{background:var(--t-ind-bg);color:var(--t-ind)}
+.new{color:var(--new);font-weight:700;font-size:12px}
+.ev{grid-column:1/-1;font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin-top:2px}
+.actions{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.btn{font:inherit;font-size:13px;border-radius:8px;padding:6px 12px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+details.how{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-top:6px}
+details.how summary{cursor:pointer;font-weight:600}
+details.how li{margin:4px 0;color:var(--muted)}
+@media (max-width:640px){.card{grid-template-columns:1fr}.actions{flex-direction:row;align-items:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Job Radar</h1>
+    <p id="sub">GTM · BD · Partnerships · Strategy roles open to an India-based candidate. Updated daily.</p>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <details class="how">
+    <summary>How roles get on this list</summary>
+    <ul>
+      <li><b>Remote · Worldwide</b>: the location says anywhere/worldwide/global, or the ad says you can work from anywhere, with no "must be based in…" line.</li>
+      <li><b>Remote · APAC/India</b>: remote roles open to India or APAC. Roles restricted to India only, which almost always come from Indian companies, are left out.</li>
+      <li><b>Visa sponsorship / relocation</b>: roles in Europe, the UK, Australia or NZ where the ad itself mentions sponsorship, relocation or a Blue Card. The quoted evidence is shown on each card.</li>
+      <li><b>Licensed UK / NL sponsor</b>: the ad says nothing about visas, but the company is on the UK Home Office or Dutch IND sponsor register. Ask the recruiter before applying.</li>
+      <li>Always removed: posts older than 30 days, "no sponsorship", "must have right to work", "US/UK/EU-based only", intern/junior and VP/C-level titles.</li>
+      <li>Sources: company career boards (Greenhouse, Lever, Ashby, Workable, Recruitee, Personio, SmartRecruiters), Himalayas, RemoteOK, Remotive, Jobicy, Working Nomads and We Work Remotely.</li>
+    </ul>
+  </details>
+
+  <div class="bar">
+    <input type="search" id="q" placeholder="Search title, company, location…">
+    <select id="family"><option value="">All role types</option><option>Partnerships</option><option>Business Development</option><option>GTM</option><option>Strategy</option></select>
+    <select id="level"><option value="">All levels</option><option>Target (4–7 yrs)</option><option>Stretch (Head/Director)</option></select>
+    <select id="region"><option value="">All regions</option><option>Remote</option><option>Europe/UK</option><option>ANZ</option></select>
+    <button class="chip" id="newOnly" aria-pressed="false">New in last 24h</button>
+    <button class="chip" id="hideApplied" aria-pressed="true">Hide applied/hidden</button>
+    <button class="chip" id="csv">Export CSV</button>
+  </div>
+
+  <div class="count" id="count"></div>
+  <div id="list"></div>
+</div>
+
+<script>
+const TIERS = [
+  ["Remote · Worldwide", "world"], ["Remote · APAC/India", "apac"], ["Visa sponsorship / relocation", "visa"],
+  ["Licensed UK visa sponsor", "reg"], ["Recognised NL visa sponsor", "reg"], ["India office (non-Indian startup)", "ind"],
+];
+const tierClass = Object.fromEntries(TIERS);
+const store = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+let marks = store.get("jr-marks", {});
+let state = { tier: store.get("jr-tier", ""), newOnly: false, hideApplied: true };
+let DATA = { jobs: [] };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const daysAgo = (d) => d ? Math.floor((Date.now() - new Date(d)) / 864e5) : null;
+
+function isNew(j) { return Date.now() - new Date(j.firstSeen + "T23:59:59Z") < 1.5 * 864e5; }
+
+function filtered() {
+  const q = $("q").value.trim().toLowerCase();
+  return DATA.jobs.filter((j) =>
+    (!state.tier || j.tier === state.tier) &&
+    (!$("family").value || j.families.includes($("family").value)) &&
+    (!$("level").value || j.level === $("level").value) &&
+    (!$("region").value || j.region === $("region").value || (j.region === "" && $("region").value === "Remote")) &&
+    (!state.newOnly || isNew(j)) &&
+    (!state.hideApplied || !marks[j.id]) &&
+    (!q || `${j.title} ${j.company} ${j.location} ${j.hq}`.toLowerCase().includes(q))
+  );
+}
+
+function renderStats() {
+  const counts = {};
+  DATA.jobs.forEach((j) => (counts[j.tier] = (counts[j.tier] || 0) + 1));
+  const fresh = DATA.jobs.filter(isNew).length;
+  $("stats").innerHTML =
+    `<button class="stat" data-tier="" aria-pressed="${!state.tier}"><b>${DATA.jobs.length}</b><span>All roles · ${fresh} new today</span></button>` +
+    TIERS.filter(([t]) => counts[t]).map(([t]) =>
+      `<button class="stat" data-tier="${esc(t)}" aria-pressed="${state.tier === t}"><b>${counts[t]}</b><span>${esc(t)}</span></button>`).join("");
+  $("stats").querySelectorAll(".stat").forEach((b) => (b.onclick = () => { state.tier = b.dataset.tier; store.set("jr-tier", state.tier); render(); }));
+}
+
+function render() {
+  renderStats();
+  const list = filtered();
+  $("count").textContent = `${list.length} role${list.length === 1 ? "" : "s"} shown`;
+  $("list").innerHTML = list.length ? list.map((j) => {
+    const age = daysAgo(j.posted);
+    return `<article class="card ${marks[j.id] ? "applied" : ""}">
+      <div>
+        <h2 class="title"><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a> ${isNew(j) ? '<span class="new">NEW</span>' : ""}</h2>
+        <div class="meta"><span><b>${esc(j.company)}</b>${j.hq ? " · HQ " + esc(j.hq) : ""}</span><span>${esc(j.location || "—")}</span>
+          <span>${age === null ? "date n/a" : age === 0 ? "posted today" : `posted ${age}d ago`}</span><span>via ${esc(j.source)}</span></div>
+        <div class="tags"><span class="tag tier ${tierClass[j.tier] || ""}">${esc(j.tier)}</span>
+          ${j.families.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}<span class="tag">${esc(j.level)}</span></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="${esc(j.url)}" target="_blank" rel="noopener">Open ad</a>
+        <button class="btn" data-mark="${esc(j.id)}" data-v="applied">${marks[j.id] === "applied" ? "✓ Applied" : "Mark applied"}</button>
+        <button class="btn" data-mark="${esc(j.id)}" data-v="hidden">${marks[j.id] === "hidden" ? "Unhide" : "Hide"}</button>
+      </div>
+      ${j.evidence ? `<div class="ev">${esc(j.evidence)}</div>` : ""}
+    </article>`;
+  }).join("") : `<div class="empty">No roles match these filters.</div>`;
+  $("list").querySelectorAll("[data-mark]").forEach((b) => (b.onclick = () => {
+    const id = b.dataset.mark, v = b.dataset.v;
+    if (marks[id] === v) delete marks[id]; else marks[id] = v;
+    store.set("jr-marks", marks); render();
+  }));
+}
+
+function toggle(id, key) { $(id).onclick = () => { state[key] = !state[key]; $(id).setAttribute("aria-pressed", state[key]); render(); }; }
+toggle("newOnly", "newOnly"); toggle("hideApplied", "hideApplied");
+["q", "family", "level", "region"].forEach((id) => $(id).addEventListener("input", render));
+$("csv").onclick = () => {
+  const cols = ["title", "company", "hq", "location", "tier", "families", "level", "posted", "firstSeen", "url", "evidence"];
+  const rows = [cols.join(",")].concat(filtered().map((j) => cols.map((c) => `"${String(Array.isArray(j[c]) ? j[c].join("/") : j[c] ?? "").replace(/"/g, '""')}"`).join(",")));
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([rows.join("\n")], { type: "text/csv" }));
+  a.download = `job-radar-${new Date().toISOString().slice(0, 10)}.csv`; a.click();
+};
+
+fetch("jobs.json?" + Date.now()).then((r) => r.json()).then((d) => {
+  DATA = d;
+  const upd = new Date(d.generatedAt);
+  $("sub").textContent = `GTM · BD · Partnerships · Strategy roles open to an India-based candidate · posted within ${d.maxAgeDays} days · last refreshed ${upd.toLocaleString()}`;
+  render();
+}).catch(() => { $("list").innerHTML = `<div class="empty">Couldn't load jobs.json.</div>`; });
+</script>
+</body>
+</html>

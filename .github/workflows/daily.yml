@@ -1,0 +1,36 @@
+name: Refresh job radar
+
+on:
+  schedule:
+    - cron: "30 0 * * *"   # daily 00:30 UTC = 06:00 IST
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Re-resolve which ATS each company uses once a week (Mondays) or on manual runs
+      - name: Discover company boards
+        run: |
+          if [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then node src/discover.mjs; fi
+      - name: Fetch roles
+        run: node src/fetch.mjs
+      - name: Commit results
+        run: |
+          git config user.name "job-radar-bot"
+          git config user.email "job-radar-bot@users.noreply.github.com"
+          git add docs/jobs.json data/
+          git diff --cached --quiet || git commit -m "Daily refresh $(date -u +%F)"
+          git push
