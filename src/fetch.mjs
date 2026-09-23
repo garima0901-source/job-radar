@@ -3,6 +3,8 @@
 // posted in the last 30 days. Writes docs/jobs.json for the dashboard.
 import fs from "node:fs";
 import { ATS, get, pool, norm, stripHtml } from "./lib.mjs";
+import { SEEDS } from "./seeds.mjs";
+const HQ_BY_NAME = new Map(Object.entries(SEEDS).flatMap(([c, l]) => l.map((n) => [norm(n.split("|")[0]), c])));
 
 const MAX_AGE_DAYS = 30;
 const NOW = Date.now();
@@ -21,7 +23,40 @@ const TITLE_EXCLUDE = /engineer|developer|architect|scientist|designer|devops|\b
 const TITLE_REGION = /\b(europe|emea|eu|eea|dach|nordics?|benelux|uk|us|usa|north america|americas|latam|germany|france|spain|italy|netherlands|poland|canada|australia|anz)\b/;
 const JUNIOR = /\bintern(ship)?\b|working student|werkstudent|\btrainee\b|graduate|\bjunior\b|\bjr\.?\b|entry[- ]level|apprentice|praktik|\bstage\b|alternance|\bthesis\b|student|\bassistant\b/;
 const TOO_SENIOR = /\b(vp|svp|evp|avp)\b|vice[- ]president|\bchief (?!of staff)|\bc[terfm]o\b|\bcro\b|managing director|general manager|senior director|global head|\bpresident\b|\bfounder\b(?!'?s'? (associate|office))|\bco-?founder\b/;
-const STRETCH = /\bdirector\b|\bhead of\b|\bhead,|\bprincipal\b/;
+// Candidate profile: ~4+ years of experience.
+const MY_YEARS = 4;
+const MAX_MIN_YEARS = 5; // drop any ad whose stated minimum is above this (5 = one-year stretch)
+const TOO_SENIOR_TITLE = /\bdirector\b|\bprincipal\b/;
+// Fellowship / talent-pool postings that list one generic role many times, not real openings
+const TALENT_POOL = new Set(["EWOR GmbH", "EWOR"]);
+const HEAD_OF = /\bhead of\b|\bhead,|^head\b/;
+
+// Minimum years of experience the ad asks for (the strictest "N years … experience" statement), or null.
+const WORDNUM = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, twelve: 12, fifteen: 15 };
+const YEARS_RE = /(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten|twelve|fifteen)\s*\+?\s*(?:plus\s*)?(?:(?:-|–|—|to)\s*(\d{1,2})\s*\+?\s*)?(?:\+\s*)?years?[’']?\s*(?:of\s+)?([a-z0-9,&/()\-+.' ]{0,70}?)(experience|exp\b|track record|background|working in|in (?:a |an )?(?:similar|related|comparable|relevant))/g;
+function yearsRequired(text) {
+  let req = null, quote = "";
+  for (const m of text.matchAll(YEARS_RE)) {
+    const n = WORDNUM[m[1]] ?? parseInt(m[1], 10);
+    if (!n || n > 25) continue;
+    const before = text.slice(Math.max(0, m.index - 25), m.index);
+    if (/(founded|over the (past|last)|for (the )?(past|last)|in the (past|last)|within|in under|every|history|since|company|we have|we've)\W*$/.test(before)) continue;
+    if (req === null || n > req) { req = n; quote = text.slice(Math.max(0, m.index - 40), m.index + m[0].length).trim(); }
+  }
+  // "7+ years in India partnerships" / "~5–7 years in growth marketing"
+  for (const m of text.matchAll(/(\d{1,2})\s*\+?\s*(?:(?:-|–|—|to)\s*\d{1,2}\s*\+?\s*)?\+?\s*years?\s+in\s+(?!the (?:past|last|next)|a row|business\b|operation\b)/g)) {
+    const n = parseInt(m[1], 10);
+    const before = text.slice(Math.max(0, m.index - 25), m.index);
+    if (/(founded|over the (past|last)|for (the )?(past|last)|within|every|since|we have|we've)\W*$/.test(before)) continue;
+    if (n <= 25 && (req === null || n > req)) { req = n; quote = text.slice(Math.max(0, m.index - 20), m.index + m[0].length + 30); }
+  }
+  // "Experience: 5+ years" / "experience of at least 6 years"
+  for (const m of text.matchAll(/experience\s*(?::|of|-|–)\s*(?:at least |minimum (?:of )?|min\.? )?(\d{1,2})\s*\+?\s*(?:(?:-|–|to)\s*\d{1,2}\s*)?years?/g)) {
+    const n = parseInt(m[1], 10);
+    if (n <= 25 && (req === null || n > req)) { req = n; quote = m[0]; }
+  }
+  return { req, quote };
+}
 
 function classifyTitle(title) {
   const t = norm(title).replace(/ and /g, " & ");
@@ -33,7 +68,8 @@ function classifyTitle(title) {
   if (TITLE_EXCLUDE.test(raw) || JUNIOR.test(raw) || TOO_SENIOR.test(raw)) return null;
   const fam = FAMILY.filter(([, re]) => re.test(full) || re.test(t)).map(([f]) => f);
   if (!fam.length) return null;
-  return { families: fam, level: STRETCH.test(raw) ? "Stretch (Head/Director)" : "Target (4–7 yrs)" };
+  if (TOO_SENIOR_TITLE.test(raw)) return null;
+  return { families: fam, headOf: HEAD_OF.test(raw) };
 }
 
 // ---------------------------------------------------------------- geography
@@ -148,7 +184,7 @@ async function fromHimalayas() {
           out.push({
             title: j.title, company: j.companyName, hq: "", source: "himalayas", url: j.applicationLink || `https://himalayas.app/companies/${j.companySlug}/jobs`,
             location: r.length ? "Remote · " + r.join(", ") : "Remote · Worldwide", posted: posted.toISOString(),
-            text: stripHtml(j.description || j.excerpt), boardWorldwide: r.length === 0, boardIndia: r.includes("India"),
+            text: stripHtml(j.description || j.excerpt), boardWorldwide: r.length === 0, boardIndia: r.includes("India"), seniority: j.seniority || [],
           });
         }
         if (jobs.length < 20 || old === jobs.length) break;
@@ -192,6 +228,7 @@ const raw = [...a, ...b, ...c];
 const seenPath = "data/seen.json";
 const seen = fs.existsSync(seenPath) ? JSON.parse(fs.readFileSync(seenPath, "utf8")) : {};
 const jobs = [];
+const AUDIT = [];
 const dedupe = new Set();
 const stats = {};
 const bump = (k) => (stats[k] = (stats[k] || 0) + 1);
@@ -205,6 +242,12 @@ for (const j of raw) {
   const loc = (j.location || "").toLowerCase();
   const text = (j.text || "").toLowerCase();
   if (SPONSOR_NEG.test(text)) { bump("says no sponsorship / right-to-work required"); continue; }
+  if (TALENT_POOL.has(j.company)) { bump("talent-pool / fellowship listing"); continue; }
+  if ((j.seniority || []).some((s) => /director|executive|vp|c-level/i.test(s))) { bump("board says Director/Executive level"); continue; }
+  const yrs = yearsRequired(text);
+  if (yrs.req !== null && yrs.req > MAX_MIN_YEARS) { bump(`asks > ${MAX_MIN_YEARS} yrs experience`); continue; }
+  if (tc.headOf && (yrs.req === null || yrs.req > MAX_MIN_YEARS)) { bump("Head-of title without a ≤5 yrs requirement"); continue; }
+  const fit = yrs.req === null ? "Years not stated" : yrs.req <= MY_YEARS ? "Fits your experience" : "Slight stretch (5 yrs)";
 
   const isRemote = /remote|anywhere|worldwide|distributed|home[- ]?based|work from home|wfh/.test(loc) || j.source === "himalayas" || ["remoteok", "remotive", "jobicy", "workingnomads", "weworkremotely"].includes(j.source);
   const locIndia = INDIA.test(loc), locApac = APAC.test(loc);
@@ -240,11 +283,14 @@ for (const j of raw) {
   const id = key.slice(0, 120);
   seen[id] ||= TODAY;
   jobs.push({
-    id, title: j.title.trim(), company: (j.company || "").trim(), hq: (j.hq || "").replace(/_/g, " "), region: reg_ || (tier.startsWith("Remote") ? "Remote" : ""),
-    location: j.location, tier, families: tc.families, level: tc.level,
+    id, title: j.title.trim(), company: (j.company || "").trim(), hq: (j.hq || HQ_BY_NAME.get(norm(j.company)) || "").replace(/_/g, " "), region: tier.startsWith("Remote") ? "Remote" : tier.startsWith("India") ? "India" : reg_,
+    location: j.location, tier, families: tc.families, fit, yearsAsked: yrs.req, yearsQuote: yrs.quote.slice(0, 160),
     posted: posted && !isNaN(posted) ? posted.toISOString().slice(0, 10) : null, firstSeen: seen[id],
     url: j.url, source: j.source, evidence: evidence.slice(0, 320),
   });
+  // AUDIT=1 node src/fetch.mjs → data/audit.json lists any "6+ years"-style phrases left in kept ads, for manual review
+  if (process.env.AUDIT) AUDIT.push({ title: j.title, company: j.company, fit, yrs: yrs.req,
+    hits: [...text.matchAll(/.{0,60}\b([6-9]|1[0-9])\s*\+?\s*(?:(?:-|–|to)\s*\d+\s*)?\+?\s*years?.{0,40}/g)].map((m) => m[0]) });
   bump("KEPT");
 }
 
@@ -256,3 +302,4 @@ fs.mkdirSync("docs", { recursive: true });
 fs.writeFileSync("docs/jobs.json", JSON.stringify({ generatedAt: new Date().toISOString(), maxAgeDays: MAX_AGE_DAYS, stats, jobs }));
 console.log(stats);
 console.log(`Wrote ${jobs.length} roles`);
+if (process.env.AUDIT) fs.writeFileSync("data/audit.json", JSON.stringify(AUDIT, null, 1));

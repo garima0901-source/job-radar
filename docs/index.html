@@ -80,7 +80,15 @@ details.how li{margin:4px 0;color:var(--muted)}
       <li><b>Remote · APAC/India</b>: remote roles open to India or APAC. Roles restricted to India only, which almost always come from Indian companies, are left out.</li>
       <li><b>Visa sponsorship / relocation</b>: roles in Europe, the UK, Australia or NZ where the ad itself mentions sponsorship, relocation or a Blue Card. The quoted evidence is shown on each card.</li>
       <li><b>Licensed UK / NL sponsor</b>: the ad says nothing about visas, but the company is on the UK Home Office or Dutch IND sponsor register. Ask the recruiter before applying.</li>
-      <li>Always removed: posts older than 30 days, "no sponsorship", "must have right to work", "US/UK/EU-based only", intern/junior and VP/C-level titles.</li>
+      <li><b>Your non-negotiables, applied to every role:</b>
+        <ol>
+          <li>Role type: GTM, Business Development, Partnerships, Strategy, Chief of Staff / Founder's Office.</li>
+          <li>Experience: you have ~4+ years. Any ad asking for more than 5 years minimum is removed. Director, Principal, VP and C-level titles are removed. "Head of" is kept only if the ad asks for 5 years or less. Intern and junior titles are removed.</li>
+          <li>Location: remote-worldwide, remote open to India/APAC, or a sponsored role in Europe, UK, Australia or New Zealand. Remote roles limited to the US, UK, EU or EMEA are removed.</li>
+          <li>Visas: any ad saying "no sponsorship" or "must already have the right to work" is removed.</li>
+          <li>Company: startups/scale-ups; no India-HQ startups.</li>
+          <li>Freshness: posted within the last 30 days; refreshed daily at 06:00 IST.</li>
+        </ol></li>
       <li>Sources: company career boards (Greenhouse, Lever, Ashby, Workable, Recruitee, Personio, SmartRecruiters), Himalayas, RemoteOK, Remotive, Jobicy, Working Nomads and We Work Remotely.</li>
     </ul>
   </details>
@@ -88,8 +96,8 @@ details.how li{margin:4px 0;color:var(--muted)}
   <div class="bar">
     <input type="search" id="q" placeholder="Search title, company, location…">
     <select id="family"><option value="">All role types</option><option>Partnerships</option><option>Business Development</option><option>GTM</option><option>Strategy</option><option>Chief of Staff / Founder's Office</option></select>
-    <select id="level"><option value="">All levels</option><option>Target (4–7 yrs)</option><option>Stretch (Head/Director)</option></select>
-    <select id="region"><option value="">All regions</option><option>Remote</option><option>Europe/UK</option><option>ANZ</option></select>
+    <select id="level"><option value="">Any experience fit</option><option>Fits your experience</option><option>Slight stretch (5 yrs)</option><option>Years not stated</option></select>
+    <select id="region"><option value="">All regions</option><option>Remote</option><option>Europe/UK</option><option>ANZ</option><option>India</option></select>
     <button class="chip" id="newOnly" aria-pressed="false">New in last 24h</button>
     <button class="chip" id="hideApplied" aria-pressed="true">Hide applied/hidden</button>
     <button class="chip" id="csv">Export CSV</button>
@@ -123,8 +131,8 @@ function filtered() {
   return DATA.jobs.filter((j) =>
     (!state.tier || j.tier === state.tier) &&
     (!$("family").value || j.families.includes($("family").value)) &&
-    (!$("level").value || j.level === $("level").value) &&
-    (!$("region").value || j.region === $("region").value || (j.region === "" && $("region").value === "Remote")) &&
+    (!$("level").value || j.fit === $("level").value) &&
+    (!$("region").value || j.region === $("region").value) &&
     (!state.newOnly || isNew(j)) &&
     (!state.hideApplied || !marks[j.id]) &&
     (!q || `${j.title} ${j.company} ${j.location} ${j.hq}`.toLowerCase().includes(q))
@@ -154,7 +162,7 @@ function render() {
         <div class="meta"><span><b>${esc(j.company)}</b>${j.hq ? " · HQ " + esc(j.hq) : ""}</span><span>${esc(j.location || "—")}</span>
           <span>${age === null ? "date n/a" : age === 0 ? "posted today" : `posted ${age}d ago`}</span><span>via ${esc(j.source)}</span></div>
         <div class="tags"><span class="tag tier ${tierClass[j.tier] || ""}">${esc(j.tier)}</span>
-          ${j.families.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}<span class="tag">${esc(j.level)}</span></div>
+          ${j.families.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}<span class="tag fit" title="${esc(j.yearsQuote)}">${esc(j.fit)}${j.yearsAsked != null ? ` · asks ${j.yearsAsked}+ yrs` : ""}</span></div>
       </div>
       <div class="actions">
         <a class="btn primary" href="${esc(j.url)}" target="_blank" rel="noopener">Open ad</a>
@@ -175,7 +183,7 @@ function toggle(id, key) { $(id).onclick = () => { state[key] = !state[key]; $(i
 toggle("newOnly", "newOnly"); toggle("hideApplied", "hideApplied");
 ["q", "family", "level", "region"].forEach((id) => $(id).addEventListener("input", render));
 $("csv").onclick = () => {
-  const cols = ["title", "company", "hq", "location", "tier", "families", "level", "posted", "firstSeen", "url", "evidence"];
+  const cols = ["title", "company", "hq", "location", "tier", "families", "fit", "yearsAsked", "posted", "firstSeen", "url", "evidence"];
   const rows = [cols.join(",")].concat(filtered().map((j) => cols.map((c) => `"${String(Array.isArray(j[c]) ? j[c].join("/") : j[c] ?? "").replace(/"/g, '""')}"`).join(",")));
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([rows.join("\n")], { type: "text/csv" }));
