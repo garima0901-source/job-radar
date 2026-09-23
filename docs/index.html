@@ -51,7 +51,7 @@ input[type=search]{flex:1 1 220px}
 .tag{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted)}
 .tier{font-weight:600}
 .tier.world{background:var(--t-world-bg);color:var(--t-world)}.tier.apac{background:var(--t-apac-bg);color:var(--t-apac)}
-.tier.visa{background:var(--t-visa-bg);color:var(--t-visa)}.tier.reg{background:var(--t-reg-bg);color:var(--t-reg)}.tier.ind{background:var(--t-ind-bg);color:var(--t-ind)}.tag.lang{background:var(--t-visa-bg);color:var(--t-visa)}.tier.ask{background:var(--accent-soft);color:var(--accent)}
+.tier.visa{background:var(--t-visa-bg);color:var(--t-visa)}.tier.reg{background:var(--t-reg-bg);color:var(--t-reg)}.tier.ind{background:var(--t-ind-bg);color:var(--t-ind)}.tag.lang{background:var(--surface-2);color:var(--muted)}.tier.ask{background:var(--accent-soft);color:var(--accent)}
 .new{color:var(--new);font-weight:700;font-size:12px}
 .ev{grid-column:1/-1;font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin-top:2px}
 .actions{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
@@ -88,7 +88,7 @@ details.how li{margin:4px 0;color:var(--muted)}
           <li>Location: remote-worldwide, remote open to India/APAC, or a sponsored role in Europe, UK, Australia or New Zealand. Remote roles limited to the US, UK, EU or EMEA are removed.</li>
           <li>Visas: any ad saying "no sponsorship" or "must already have the right to work" is removed.</li>
           <li>Company: startups/scale-ups; no India-HQ startups.</li>
-          <li>Language: roles whose ad requires a local language (e.g. fluent German) or is written in one are tagged and hidden by default. Switch "Hide roles needing a local language" off to see them.</li>
+          <li>Language: English only. Any ad that requires a local language (e.g. "fluent German", "native French", or written in German/French/etc.) is removed. Ads where the language is "a plus" / "nice to have" / "not required" stay, tagged.</li>
           <li>Freshness: posted within the last 30 days; refreshed daily at 06:00 IST.</li>
         </ol></li>
       <li>Sources: company career boards (Greenhouse, Lever, Ashby, Workable, Recruitee, Personio, SmartRecruiters), Himalayas, RemoteOK, Remotive, Jobicy, Working Nomads and We Work Remotely.</li>
@@ -101,7 +101,6 @@ details.how li{margin:4px 0;color:var(--muted)}
     <select id="level"><option value="">Any experience fit</option><option>Fits your experience</option><option>Slight stretch (5 yrs)</option><option>Years not stated</option></select>
     <select id="region"><option value="">All regions</option><option>Remote</option><option>Europe/UK</option><option>ANZ</option><option>India</option></select>
     <button class="chip" id="newOnly" aria-pressed="false">New in last 24h</button>
-    <button class="chip" id="hideLang" aria-pressed="true">Hide roles needing a local language</button>
     <button class="chip" id="hideApplied" aria-pressed="true">Hide applied/hidden</button>
     <button class="chip" id="csv">Export CSV</button>
   </div>
@@ -121,7 +120,7 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 let marks = store.get("jr-marks", {});
-let state = { tier: store.get("jr-tier", ""), newOnly: false, hideApplied: true, hideLang: store.get("jr-hideLang", true) };
+let state = { tier: store.get("jr-tier", ""), newOnly: false, hideApplied: true };
 let DATA = { jobs: [] };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -138,14 +137,13 @@ function filtered() {
     (!$("region").value || j.region === $("region").value) &&
     (!state.newOnly || isNew(j)) &&
     (!state.hideApplied || !marks[j.id]) &&
-    (!state.hideLang || !j.language) &&
     (!q || `${j.title} ${j.company} ${j.location} ${j.hq}`.toLowerCase().includes(q))
   );
 }
 
 function renderStats() {
   const counts = {};
-  const base = DATA.jobs.filter((j) => !state.hideLang || !j.language);
+  const base = DATA.jobs;
   base.forEach((j) => (counts[j.tier] = (counts[j.tier] || 0) + 1));
   const fresh = base.filter(isNew).length;
   $("stats").innerHTML =
@@ -167,7 +165,7 @@ function render() {
         <div class="meta"><span><b>${esc(j.company)}</b>${j.hq ? " · HQ " + esc(j.hq) : ""}</span><span>${esc(j.location || "—")}</span>
           <span>${age === null ? "date n/a" : age === 0 ? "posted today" : `posted ${age}d ago`}</span><span>via ${esc(j.source)}</span></div>
         <div class="tags"><span class="tag tier ${tierClass[j.tier] || ""}">${esc(j.tier)}</span>
-          ${j.families.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}${j.language ? `<span class="tag lang">Needs ${esc(j.language)}</span>` : ""}<span class="tag fit" title="${esc(j.yearsQuote)}">${esc(j.fit)}${j.yearsAsked != null ? ` · asks ${j.yearsAsked}+ yrs` : ""}</span></div>
+          ${j.families.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}${j.language ? `<span class="tag lang">${esc(j.language)} a plus, not required</span>` : ""}<span class="tag fit" title="${esc(j.yearsQuote)}">${esc(j.fit)}${j.yearsAsked != null ? ` · asks ${j.yearsAsked}+ yrs` : ""}</span></div>
       </div>
       <div class="actions">
         <a class="btn primary" href="${esc(j.url)}" target="_blank" rel="noopener">Open ad</a>
@@ -185,8 +183,7 @@ function render() {
 }
 
 function toggle(id, key) { $(id).onclick = () => { state[key] = !state[key]; $(id).setAttribute("aria-pressed", state[key]); render(); }; }
-toggle("newOnly", "newOnly"); toggle("hideApplied", "hideApplied"); toggle("hideLang", "hideLang");
-$("hideLang").setAttribute("aria-pressed", state.hideLang); $("hideLang").addEventListener("click", () => store.set("jr-hideLang", state.hideLang));
+toggle("newOnly", "newOnly"); toggle("hideApplied", "hideApplied");
 ["q", "family", "level", "region"].forEach((id) => $(id).addEventListener("input", render));
 $("csv").onclick = () => {
   const cols = ["title", "company", "hq", "location", "tier", "families", "fit", "yearsAsked", "posted", "firstSeen", "url", "evidence"];

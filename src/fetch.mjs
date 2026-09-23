@@ -62,10 +62,18 @@ function yearsRequired(text) {
   return { req, quote };
 }
 
-// Local-language requirement: returns e.g. "German" if the ad requires it (or is written in it), else "".
-const LANGS = "german|french|italian|spanish|dutch|swedish|norwegian|danish|finnish|polish|czech|portuguese|hungarian|romanian|greek";
-const LANG_REQ = new RegExp(`(fluent|fluency|native|proficien\\w*|excellent|business[- ]level|professional[- ]level|c1|c2|strong|very good|full professional)[^.;]{0,40}\\b(${LANGS})\\b|\\b(${LANGS})\\b[^.;]{0,30}(fluen\\w*|native|required|mandatory|essential|is a must|c1|c2|mother tongue)`, "g");
-const LANG_OPTIONAL = /\b(plus|nice[- ]to[- ]have|bonus|advantage|advantageous|preferred|desirable|beneficial|not required|a benefit)\b/;
+// Local-language requirement. Each language mention is judged on the words attached to it:
+//  - forward: from the language word to the end of its clause (next , . ; ) or next language)
+//  - backward: from the start of its clause (or previous language) up to 80 chars before
+// "optional" wording attached to it wins ("French is a strong plus", "bonus if you speak Italian"),
+// otherwise "required" wording ("fluent German", "French and English are mandatory") makes it required.
+const LANGS = ["german", "french", "italian", "spanish", "dutch", "swedish", "norwegian", "danish", "finnish", "polish", "czech", "portuguese", "hungarian", "romanian", "greek"];
+const LANG_WORD = new RegExp(`\\b(${LANGS.join("|")})\\b`, "g");
+const OPT_FWD = /\b(plus|nice[- ]to[- ]have|bonus|advantage|advantageous|not (required|necessary|mandatory|essential)|optional|preferred|desirable|beneficial|helpful|would be great)\b/;
+const OPT_BACK = /\b(bonus|nice[- ]to[- ]have|advantage|preferred|desirable|ideally|optional|a plus)\b|\(plus\)|\bplus:|\bpluses\b/;
+// "Danish consumers", "German market" = nationality, not a language requirement
+const NATIONALITY_USE = /^\s*(consumers?|customers?|users?|markets?|companies|businesses|clients|entrants|cities|market's|team|office|law|subsidiar\w*|government|banks?|ecosystem|players?)\b/;
+const REQ_WORDS = /\b(required|requirement|mandatory|essential|must|fluent|fluency|native|proficien\w*|bilingual|excellent|business[- ]level|professional[- ]level|full professional|c1|c2|strong|very good|mother tongue|need to speak|speak)\b/;
 const STOPWORDS = {
   German: /\b(und|wir|sie|für|mit|bei|oder|auf|eine?n?|ist|dein|deine|unser|über)\b/g,
   French: /\b(nous|vous|et|les|des|pour|avec|une|dans|est|sur|votre)\b/g,
@@ -74,20 +82,31 @@ const STOPWORDS = {
   Dutch: /\b(het|een|wij|jij|voor|met|onze|zijn|bij|naar)\b/g,
   Swedish: /\b(och|att|vi|du|för|med|som|är|på|våra)\b/g,
 };
-function languageRequired(title, text) {
+const cap = (w) => w[0].toUpperCase() + w.slice(1);
+function analyzeLanguages(text) {
   const english = (text.match(/\b(the|and|you|we|with|for|our|your|will|are)\b/g) || []).length;
   for (const [lang, re] of Object.entries(STOPWORDS)) {
     const n = (text.match(re) || []).length;
-    if (n > 25 && n > english * 1.2) return lang; // ad itself is written in that language
+    if (n > 25 && n > english * 1.2) return { required: lang, optional: "", quote: "ad is written in " + lang };
   }
-  if (/\(m\/w\/d\)|\(w\/m\/d\)|:in\b|\/in\b/.test(title.toLowerCase())) return "German";
-  for (const m of text.matchAll(LANG_REQ)) {
-    const around = text.slice(Math.max(0, m.index - 30), m.index + m[0].length + 50);
-    if (LANG_OPTIONAL.test(around)) continue;
-    const lang = m[2] || m[3];
-    return lang[0].toUpperCase() + lang.slice(1);
+  const hits = [...text.matchAll(LANG_WORD)];
+  let optional = "", optQuote = "";
+  for (let i = 0; i < hits.length; i++) {
+    const m = hits[i], s = m.index, e = s + m[0].length;
+    const nextLang = i + 1 < hits.length ? hits[i + 1].index : text.length;
+    const fwdRaw = text.slice(e, Math.min(nextLang, e + 60));
+    const fwd = fwdRaw.split(/[.,;:)!?]/)[0];
+    const prevLang = i > 0 ? hits[i - 1].index + hits[i - 1][0].length : 0;
+    const backRaw = text.slice(Math.max(prevLang, s - 80), s);
+    const back = backRaw.split(/[.;!?]/).pop();
+    const quote = (back + m[0] + fwd).trim();
+    if (NATIONALITY_USE.test(fwd)) continue;
+    // optional wording anywhere in the language's own clause wins
+    if (OPT_FWD.test(fwd) || OPT_BACK.test(back)) { if (!optional) { optional = cap(m[1]); optQuote = quote; } continue; }
+    // required wording must sit right next to the language
+    if (REQ_WORDS.test(fwd.slice(0, 35)) || REQ_WORDS.test(back.slice(-60))) return { required: cap(m[1]), optional: "", quote };
   }
-  return "";
+  return { required: "", optional, quote: optQuote };
 }
 
 function classifyTitle(title) {
@@ -279,7 +298,9 @@ for (const j of raw) {
   const yrs = yearsRequired(text);
   if (yrs.req !== null && yrs.req > MAX_MIN_YEARS) { bump(`asks > ${MAX_MIN_YEARS} yrs experience`); continue; }
   if (tc.headOf && (yrs.req === null || yrs.req > MAX_MIN_YEARS)) { bump("Head-of title without a ≤5 yrs requirement"); continue; }
-  const language = languageRequired(j.title, text);
+  const lang = analyzeLanguages(text);
+  if (lang.required) { if (process.env.AUDIT) AUDIT.push({ removed: true, title: j.title, company: j.company, lang: lang.required, quote: lang.quote }); bump("requires a local language (" + lang.required + ")"); continue; }
+  const language = lang.optional; // only optional mentions survive
   const fit = yrs.req === null ? "Years not stated" : yrs.req <= MY_YEARS ? "Fits your experience" : "Slight stretch (5 yrs)";
 
   const isRemote = /remote|anywhere|worldwide|distributed|home[- ]?based|work from home|wfh/.test(loc) || j.source === "himalayas" || ["remoteok", "remotive", "jobicy", "workingnomads", "weworkremotely"].includes(j.source);
@@ -308,7 +329,7 @@ for (const j of raw) {
     tier = "Recognised NL visa sponsor"; evidence = "Company appears on the IND public register of recognised sponsors (ad is silent on visas — ask)";
   } else if (reg_ && !isRemote) {
     // On-site/hybrid in Europe/UK/ANZ; the ad neither offers nor rules out sponsorship.
-    tier = "Ask about visa (not mentioned)"; evidence = "Ad doesn't mention visas either way" + (reg_ === "Europe/UK" && !/united kingdom|uk|london|switzerland|zurich|geneva|norway|oslo/.test(loc) ? " — EU Blue Card route likely available" : "") + ". Confirm with the recruiter before investing time.";
+    tier = "Ask about visa (not mentioned)"; evidence = "Ad doesn't mention visas either way" + (reg_ === "Europe/UK" && !/united kingdom|\buk\b|england|scotland|london|manchester|edinburgh|switzerland|zurich|geneva|norway|oslo/.test(loc) ? " — EU Blue Card route likely available" : "") + ". Confirm with the recruiter before investing time.";
   }
   if (!tier) { bump(isRemote ? "remote but restricted to a non-India country" : "on-site, no sponsorship signal"); continue; }
 
@@ -325,7 +346,7 @@ for (const j of raw) {
     url: j.url, source: j.source, evidence: evidence.slice(0, 320),
   });
   // AUDIT=1 node src/fetch.mjs → data/audit.json lists any "6+ years"-style phrases left in kept ads, for manual review
-  if (process.env.AUDIT) AUDIT.push({ title: j.title, company: j.company, fit, yrs: yrs.req,
+  if (process.env.AUDIT) AUDIT.push({ title: j.title, company: j.company, fit, yrs: yrs.req, langOpt: lang.quote,
     hits: [...text.matchAll(/.{0,60}\b([6-9]|1[0-9])\s*\+?\s*(?:(?:-|–|to)\s*\d+\s*)?\+?\s*years?.{0,40}/g)].map((m) => m[0]) });
   bump("KEPT");
 }
