@@ -13,7 +13,8 @@ const FAMILY = [
   ["Partnerships", /partnerships?\b|\bpartner (manager|management|success|marketing|sales|development|lead|operations|account|program|ecosystem|enablement|growth|acquisition|strategy)|\balliances?\b|\bchannel (manager|partner|sales|lead|account|development)|\becosystem\b|\baffiliate (manager|lead|partnership)|\breseller\b|\bhead of partners\b/],
   ["Business Development", /business development|\bbiz ?dev\b|\bbd (manager|lead|director|associate|executive)|\bnew business\b|market (development|expansion|entry|launch)|\bexpansion (manager|lead|associate)|\bcountry (manager|launch|lead)|\blaunch (manager|lead)|\bcity (manager|launcher|lead)|corporate development|\bcorp ?dev\b|\bm&a\b|commercial (manager|lead|director|strategy|partnerships|development)|\bstrategic accounts? manager/],
   ["GTM", /go[- ]to[- ]market|\bgtm\b|revenue (strategy|operations)|\brevops\b|sales strategy|commercial (excellence|operations)|\bgrowth (manager|lead|strategist|associate)|\bmarket(s)? lead\b/],
-  ["Strategy", /\bstrateg(y|ic|ist)\b|\bbizops\b|business operations|strategy (&|and) (operations|ops)|\bchief of staff\b|founder'?s'? (associate|office)|founders? associate|special projects|\bventure (lead|associate|builder)\b|\bentrepreneur in residence\b/],
+  ["Strategy", /\bstrateg(y|ic|ist)\b|\bbizops\b|business operations|strategy (&|and) (operations|ops)|strategic (initiatives|programs?|projects)|\btransformation (manager|lead)\b/],
+  ["Chief of Staff / Founder's Office", /\bchief of staff\b|founder'?s'?'? (associate|office|team)|founders? associate|(associate|analyst|manager|lead) (to|in) the (ceo|founders?|co-?founders?|office of the ceo)|\b(ceo|founder'?s'?) office\b|office of the (ceo|founders?)|special projects|\bentrepreneur in residence\b|\bventure (lead|associate|builder|partner)\b|\bfounding (operations|ops|business|bizops|gtm|generalist|team member|commercial|growth|partnerships?|strategy)|\b(business|operations|ops|startup|commercial) generalist\b|\bgeneralist\b/],
 ];
 const TITLE_EXCLUDE = /engineer|developer|architect|scientist|designer|devops|\bsre\b|recruit|talent|\bpeople\b|\bhr\b|human resources|payroll|legal|counsel|lawyer|paralegal|accountant|accounting|bookkeep|\btax\b|audit|clinical|nurse|physician|doctor|teacher|tutor|content (strategist|writer)|\bseo\b|social media|brand strategist|creative|copywrit|media buyer|customer support|support (agent|specialist)|customer success|\bsdr\b|\bbdr\b|sales development|representative|\bcall ?cent|telesales|cold call|\bdriver\b|warehouse|technician|finance business partner|hr business partner|people partner|data (strateg|analyst)|security|cloud|infrastructure|product designer|ux|ui\b|design strateg|marketing strateg|performance marketing|growth strategist|strategic finance|finance (&|and) strategy|professional services|strategic accounts?|don.?t see|general application|open application|talent (pool|community)|spontaneous|future opportunit/;
 // A region in the title, e.g. "BD Manager (Remote, Europe)", overrides a blank "worldwide" location field
@@ -25,9 +26,12 @@ const STRETCH = /\bdirector\b|\bhead of\b|\bhead,|\bprincipal\b/;
 function classifyTitle(title) {
   const t = norm(title).replace(/ and /g, " & ");
   // "Chief of Staff to the CEO" / "Associate to the Founders" describe who you report to, not your level
-  const raw = title.toLowerCase().replace(/\b(to|for) (the )?(ceo|cto|coo|cfo|cro|cco|founders?|co-?founders?|leadership team)\b.*/, "");
+  const full = title.toLowerCase();
+  const raw = full
+    .replace(/\b(to|for|in) (the )?(office of the )?(ceo|cto|coo|cfo|cro|cco|founders?|co-?founders?|leadership team)\b.*/, "")
+    .replace(/\b(ceo|founder'?s'?) office\b|office of the (ceo|founders?)/, "office");
   if (TITLE_EXCLUDE.test(raw) || JUNIOR.test(raw) || TOO_SENIOR.test(raw)) return null;
-  const fam = FAMILY.filter(([, re]) => re.test(raw) || re.test(t)).map(([f]) => f);
+  const fam = FAMILY.filter(([, re]) => re.test(full) || re.test(t)).map(([f]) => f);
   if (!fam.length) return null;
   return { families: fam, level: STRETCH.test(raw) ? "Stretch (Head/Director)" : "Target (4–7 yrs)" };
 }
@@ -124,7 +128,7 @@ async function fromCompanies() {
   return out;
 }
 
-const HIMALAYAS_Q = ["partnerships", "partner manager", "business development", "go to market", "gtm", "strategy", "strategic", "alliances", "channel", "chief of staff", "bizops", "business operations", "ecosystem", "expansion", "corporate development", "founders associate", "commercial"];
+const HIMALAYAS_Q = ["partnerships", "partner manager", "business development", "go to market", "gtm", "strategy", "strategic", "alliances", "channel", "chief of staff", "bizops", "business operations", "ecosystem", "expansion", "corporate development", "founders associate", "founder associate", "founders office", "associate to the ceo", "special projects", "generalist", "strategic initiatives", "commercial"];
 async function fromHimalayas() {
   const out = [];
   const seen = new Set();
