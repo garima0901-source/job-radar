@@ -51,7 +51,7 @@ input[type=search]{flex:1 1 220px}
 .tag{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted)}
 .tier{font-weight:600}
 .tier.world{background:var(--t-world-bg);color:var(--t-world)}.tier.apac{background:var(--t-apac-bg);color:var(--t-apac)}
-.tier.visa{background:var(--t-visa-bg);color:var(--t-visa)}.tier.reg{background:var(--t-reg-bg);color:var(--t-reg)}.tier.ind{background:var(--t-ind-bg);color:var(--t-ind)}
+.tier.visa{background:var(--t-visa-bg);color:var(--t-visa)}.tier.reg{background:var(--t-reg-bg);color:var(--t-reg)}.tier.ind{background:var(--t-ind-bg);color:var(--t-ind)}.tag.lang{background:var(--t-visa-bg);color:var(--t-visa)}.tier.ask{background:var(--accent-soft);color:var(--accent)}
 .new{color:var(--new);font-weight:700;font-size:12px}
 .ev{grid-column:1/-1;font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin-top:2px}
 .actions{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
@@ -68,7 +68,7 @@ details.how li{margin:4px 0;color:var(--muted)}
 <div class="wrap">
   <header>
     <h1>Job Radar</h1>
-    <p id="sub">GTM · BD · Partnerships · Strategy roles open to an India-based candidate. Updated daily.</p>
+    <p id="sub">GTM · BD · Partnerships · Strategy · Founder's Office · AI · Events roles open to an India-based candidate. Updated daily.</p>
   </header>
 
   <div class="stats" id="stats"></div>
@@ -80,13 +80,15 @@ details.how li{margin:4px 0;color:var(--muted)}
       <li><b>Remote · APAC/India</b>: remote roles open to India or APAC. Roles restricted to India only, which almost always come from Indian companies, are left out.</li>
       <li><b>Visa sponsorship / relocation</b>: roles in Europe, the UK, Australia or NZ where the ad itself mentions sponsorship, relocation or a Blue Card. The quoted evidence is shown on each card.</li>
       <li><b>Licensed UK / NL sponsor</b>: the ad says nothing about visas, but the company is on the UK Home Office or Dutch IND sponsor register. Ask the recruiter before applying.</li>
+      <li><b>Ask about visa</b>: on-site/hybrid roles in Europe, UK, Australia or NZ whose ad neither offers nor rules out sponsorship. Lowest confidence, but where most Chief of Staff / Founder's Associate roles are. In the EU (not UK/CH/NO) the Blue Card makes sponsorship routine for many startups.</li>
       <li><b>Your non-negotiables, applied to every role:</b>
         <ol>
-          <li>Role type: GTM, Business Development, Partnerships, Strategy, Chief of Staff / Founder's Office.</li>
+          <li>Role type: GTM, Business Development, Partnerships (incl. partner success, cloud alliances), Strategy (incl. pricing/monetisation), Chief of Staff / Founder's Office, Product Marketing, Strategic/Key Account Management, AI (non-technical), Events & Community. Not included: engineering, quota-carrying Account Executive / SDR roles, AI data-annotation gigs.</li>
           <li>Experience: you have ~4+ years. Any ad asking for more than 5 years minimum is removed. Director, Principal, VP and C-level titles are removed. "Head of" is kept only if the ad asks for 5 years or less. Intern and junior titles are removed.</li>
           <li>Location: remote-worldwide, remote open to India/APAC, or a sponsored role in Europe, UK, Australia or New Zealand. Remote roles limited to the US, UK, EU or EMEA are removed.</li>
           <li>Visas: any ad saying "no sponsorship" or "must already have the right to work" is removed.</li>
           <li>Company: startups/scale-ups; no India-HQ startups.</li>
+          <li>Language: roles whose ad requires a local language (e.g. fluent German) or is written in one are tagged and hidden by default. Switch "Hide roles needing a local language" off to see them.</li>
           <li>Freshness: posted within the last 30 days; refreshed daily at 06:00 IST.</li>
         </ol></li>
       <li>Sources: company career boards (Greenhouse, Lever, Ashby, Workable, Recruitee, Personio, SmartRecruiters), Himalayas, RemoteOK, Remotive, Jobicy, Working Nomads and We Work Remotely.</li>
@@ -95,10 +97,11 @@ details.how li{margin:4px 0;color:var(--muted)}
 
   <div class="bar">
     <input type="search" id="q" placeholder="Search title, company, location…">
-    <select id="family"><option value="">All role types</option><option>Partnerships</option><option>Business Development</option><option>GTM</option><option>Strategy</option><option>Chief of Staff / Founder's Office</option></select>
+    <select id="family"><option value="">All role types</option><option>Partnerships</option><option>Business Development</option><option>GTM</option><option>Strategy</option><option>Chief of Staff / Founder's Office</option><option>Product Marketing</option><option>Account Management</option><option>AI (non-technical)</option><option>Events & Community</option></select>
     <select id="level"><option value="">Any experience fit</option><option>Fits your experience</option><option>Slight stretch (5 yrs)</option><option>Years not stated</option></select>
     <select id="region"><option value="">All regions</option><option>Remote</option><option>Europe/UK</option><option>ANZ</option><option>India</option></select>
     <button class="chip" id="newOnly" aria-pressed="false">New in last 24h</button>
+    <button class="chip" id="hideLang" aria-pressed="true">Hide roles needing a local language</button>
     <button class="chip" id="hideApplied" aria-pressed="true">Hide applied/hidden</button>
     <button class="chip" id="csv">Export CSV</button>
   </div>
@@ -110,7 +113,7 @@ details.how li{margin:4px 0;color:var(--muted)}
 <script>
 const TIERS = [
   ["Remote · Worldwide", "world"], ["Remote · APAC/India", "apac"], ["Visa sponsorship / relocation", "visa"],
-  ["Licensed UK visa sponsor", "reg"], ["Recognised NL visa sponsor", "reg"], ["India office (non-Indian startup)", "ind"],
+  ["Licensed UK visa sponsor", "reg"], ["Recognised NL visa sponsor", "reg"], ["Ask about visa (not mentioned)", "ask"], ["India office (non-Indian startup)", "ind"],
 ];
 const tierClass = Object.fromEntries(TIERS);
 const store = {
@@ -118,7 +121,7 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 let marks = store.get("jr-marks", {});
-let state = { tier: store.get("jr-tier", ""), newOnly: false, hideApplied: true };
+let state = { tier: store.get("jr-tier", ""), newOnly: false, hideApplied: true, hideLang: store.get("jr-hideLang", true) };
 let DATA = { jobs: [] };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -135,16 +138,18 @@ function filtered() {
     (!$("region").value || j.region === $("region").value) &&
     (!state.newOnly || isNew(j)) &&
     (!state.hideApplied || !marks[j.id]) &&
+    (!state.hideLang || !j.language) &&
     (!q || `${j.title} ${j.company} ${j.location} ${j.hq}`.toLowerCase().includes(q))
   );
 }
 
 function renderStats() {
   const counts = {};
-  DATA.jobs.forEach((j) => (counts[j.tier] = (counts[j.tier] || 0) + 1));
-  const fresh = DATA.jobs.filter(isNew).length;
+  const base = DATA.jobs.filter((j) => !state.hideLang || !j.language);
+  base.forEach((j) => (counts[j.tier] = (counts[j.tier] || 0) + 1));
+  const fresh = base.filter(isNew).length;
   $("stats").innerHTML =
-    `<button class="stat" data-tier="" aria-pressed="${!state.tier}"><b>${DATA.jobs.length}</b><span>All roles · ${fresh} new today</span></button>` +
+    `<button class="stat" data-tier="" aria-pressed="${!state.tier}"><b>${base.length}</b><span>All roles · ${fresh} new today</span></button>` +
     TIERS.filter(([t]) => counts[t]).map(([t]) =>
       `<button class="stat" data-tier="${esc(t)}" aria-pressed="${state.tier === t}"><b>${counts[t]}</b><span>${esc(t)}</span></button>`).join("");
   $("stats").querySelectorAll(".stat").forEach((b) => (b.onclick = () => { state.tier = b.dataset.tier; store.set("jr-tier", state.tier); render(); }));
@@ -162,7 +167,7 @@ function render() {
         <div class="meta"><span><b>${esc(j.company)}</b>${j.hq ? " · HQ " + esc(j.hq) : ""}</span><span>${esc(j.location || "—")}</span>
           <span>${age === null ? "date n/a" : age === 0 ? "posted today" : `posted ${age}d ago`}</span><span>via ${esc(j.source)}</span></div>
         <div class="tags"><span class="tag tier ${tierClass[j.tier] || ""}">${esc(j.tier)}</span>
-          ${j.families.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}<span class="tag fit" title="${esc(j.yearsQuote)}">${esc(j.fit)}${j.yearsAsked != null ? ` · asks ${j.yearsAsked}+ yrs` : ""}</span></div>
+          ${j.families.map((f) => `<span class="tag">${esc(f)}</span>`).join("")}${j.language ? `<span class="tag lang">Needs ${esc(j.language)}</span>` : ""}<span class="tag fit" title="${esc(j.yearsQuote)}">${esc(j.fit)}${j.yearsAsked != null ? ` · asks ${j.yearsAsked}+ yrs` : ""}</span></div>
       </div>
       <div class="actions">
         <a class="btn primary" href="${esc(j.url)}" target="_blank" rel="noopener">Open ad</a>
@@ -180,7 +185,8 @@ function render() {
 }
 
 function toggle(id, key) { $(id).onclick = () => { state[key] = !state[key]; $(id).setAttribute("aria-pressed", state[key]); render(); }; }
-toggle("newOnly", "newOnly"); toggle("hideApplied", "hideApplied");
+toggle("newOnly", "newOnly"); toggle("hideApplied", "hideApplied"); toggle("hideLang", "hideLang");
+$("hideLang").setAttribute("aria-pressed", state.hideLang); $("hideLang").addEventListener("click", () => store.set("jr-hideLang", state.hideLang));
 ["q", "family", "level", "region"].forEach((id) => $(id).addEventListener("input", render));
 $("csv").onclick = () => {
   const cols = ["title", "company", "hq", "location", "tier", "families", "fit", "yearsAsked", "posted", "firstSeen", "url", "evidence"];
@@ -193,7 +199,7 @@ $("csv").onclick = () => {
 fetch("jobs.json?" + Date.now()).then((r) => r.json()).then((d) => {
   DATA = d;
   const upd = new Date(d.generatedAt);
-  $("sub").textContent = `GTM · BD · Partnerships · Strategy roles open to an India-based candidate · posted within ${d.maxAgeDays} days · last refreshed ${upd.toLocaleString()}`;
+  $("sub").textContent = `GTM · BD · Partnerships · Strategy · Founder's Office · AI · Events roles open to an India-based candidate · posted within ${d.maxAgeDays} days · last refreshed ${upd.toLocaleString()}`;
   render();
 }).catch(() => { $("list").innerHTML = `<div class="empty">Couldn't load jobs.json.</div>`; });
 </script>

@@ -12,13 +12,17 @@ const TODAY = new Date().toISOString().slice(0, 10);
 
 // ---------------------------------------------------------------- role filters
 const FAMILY = [
-  ["Partnerships", /partnerships?\b|\bpartner (manager|management|success|marketing|sales|development|lead|operations|account|program|ecosystem|enablement|growth|acquisition|strategy)|\balliances?\b|\bchannel (manager|partner|sales|lead|account|development)|\becosystem\b|\baffiliate (manager|lead|partnership)|\breseller\b|\bhead of partners\b/],
+  ["Partnerships", /partnerships?\b|\bpartner (manager|management|success|marketing|sales|development|lead|operations|account|program|ecosystem|enablement|growth|acquisition|strategy)|\balliances?\b|\bchannel (manager|partner|sales|lead|account|development)|\becosystem\b|\baffiliate (manager|lead|partnership)|\breseller\b|\bhead of partners\b|\bcloud (alliances?|partnerships?|marketplace)|\b(aws|gcp|azure|google cloud|microsoft) (partner|alliance|marketplace)|\bmarketplace (partnerships?|manager|lead)\b/],
   ["Business Development", /business development|\bbiz ?dev\b|\bbd (manager|lead|director|associate|executive)|\bnew business\b|market (development|expansion|entry|launch)|\bexpansion (manager|lead|associate)|\bcountry (manager|launch|lead)|\blaunch (manager|lead)|\bcity (manager|launcher|lead)|corporate development|\bcorp ?dev\b|\bm&a\b|commercial (manager|lead|director|strategy|partnerships|development)|\bstrategic accounts? manager/],
-  ["GTM", /go[- ]to[- ]market|\bgtm\b|revenue (strategy|operations)|\brevops\b|sales strategy|commercial (excellence|operations)|\bgrowth (manager|lead|strategist|associate)|\bmarket(s)? lead\b/],
-  ["Strategy", /\bstrateg(y|ic|ist)\b|\bbizops\b|business operations|strategy (&|and) (operations|ops)|strategic (initiatives|programs?|projects)|\btransformation (manager|lead)\b/],
+  ["GTM", /go[- ]to[- ]market|\bgtm\b|revenue (strategy|operations)|\brevops\b|sales strategy|commercial (excellence|operations)|\bgrowth (manager|lead|strategist|associate)|\bmarket(s)? lead\b|\b(gtm|go[- ]to[- ]market|commercial|revenue|sales|business|partner|channel) (program|programme) manager\b|\bsales enablement\b/],
+  ["Strategy", /\bstrateg(y|ic|ist)\b|\bbizops\b|business operations|strategy (&|and) (operations|ops)|strategic (initiatives|programs?|projects)|\btransformation (manager|lead)\b|\bpricing (manager|lead|strategy|strategist|analyst|associate|& packaging|and packaging)|\bmoneti[sz]ation\b/],
   ["Chief of Staff / Founder's Office", /\bchief of staff\b|founder'?s'?'? (associate|office|team)|founders? associate|(associate|analyst|manager|lead) (to|in) the (ceo|founders?|co-?founders?|office of the ceo)|\b(ceo|founder'?s'?) office\b|office of the (ceo|founders?)|special projects|\bentrepreneur in residence\b|\bventure (lead|associate|builder|partner)\b|\bfounding (operations|ops|business|bizops|gtm|generalist|team member|commercial|growth|partnerships?|strategy)|\b(business|operations|ops|startup|commercial) generalist\b|\bgeneralist\b/],
+  ["Product Marketing", /\bproduct marketing\b|\bpmm\b|\b(solutions?|partner|industry|portfolio) marketing manager\b/],
+  ["Account Management", /\b(strategic|key|partner|global|enterprise) account (manager|management|lead|director)\b|\bkey accounts?\b|\bstrategic accounts? (manager|lead)\b|\baccount management lead\b/],
+  ["AI (non-technical)", /^(?=.*\b(ai|a\.i\.|genai|gen ai|generative ai|llms?|agentic|ai agents?|artificial intelligence)\b)(?=.*\b(strateg\w*|adoption|enablement|transformation|operations|ops|automation|program\w*|implementation|partnerships?|partner|gtm|go[- ]to[- ]market|evangelist|advocate|community|consultant|specialist|lead|manager|business|growth|solutions|deployment|associate|analyst|marketing|success|expansion|launch|product operations|champion)\b)/],
+  ["Events & Community", /\bevents?\b|\bexperiential\b|\bconferences?\b|\bsummits?\b|\bfield marketing\b|\bcommunity (manager|lead|growth|partnerships|marketing|programs?)\b|\bhead of community\b/],
 ];
-const TITLE_EXCLUDE = /engineer|developer|architect|scientist|designer|devops|\bsre\b|recruit|talent|\bpeople\b|\bhr\b|human resources|payroll|legal|counsel|lawyer|paralegal|accountant|accounting|bookkeep|\btax\b|audit|clinical|nurse|physician|doctor|teacher|tutor|content (strategist|writer)|\bseo\b|social media|brand strategist|creative|copywrit|media buyer|customer support|support (agent|specialist)|customer success|\bsdr\b|\bbdr\b|sales development|representative|\bcall ?cent|telesales|cold call|\bdriver\b|warehouse|technician|finance business partner|hr business partner|people partner|data (strateg|analyst)|security|cloud|infrastructure|product designer|ux|ui\b|design strateg|marketing strateg|performance marketing|growth strategist|strategic finance|finance (&|and) strategy|professional services|strategic accounts?|don.?t see|general application|open application|talent (pool|community)|spontaneous|future opportunit/;
+const TITLE_EXCLUDE = /engineer|developer|architect|scientist|designer|devops|\bsre\b|recruit|talent|\bpeople\b|\bhr\b|human resources|payroll|legal|counsel|lawyer|paralegal|accountant|accounting|bookkeep|\btax\b|audit|clinical|nurse|physician|doctor|teacher|tutor|content (strategist|writer)|\bseo\b|social media|brand strategist|creative|copywrit|media buyer|customer support|support (agent|specialist)|customer success|\bsdr\b|\bbdr\b|sales development|representative|\bcall ?cent|telesales|cold call|\bdriver\b|warehouse|technician|finance business partner|hr business partner|people partner|data (strateg|analyst)|security|cloud (ops|operations|support|administrator)|infrastructure|product designer|ux|ui\b|design strateg|marketing strateg|performance marketing|growth strategist|strategic finance|finance (&|and) strategy|professional services|don.?t see|general application|open application|talent (pool|community)|spontaneous|future opportunit|\baccount executive\b|\bae\b|sales executive|\bproduct (manager|owner|lead)\b|technical|release manager|decision science|data extraction|governance|paid (acquisition|media|social)|\baeo\b|answer engine|lifecycle|chatbot|trainer|training (specialist|data)|annotat|\brater\b|evaluator|labell?(er|ing)|\bexpert\b|freelance|contributor|writer|event (security|staff|crew|catering)|bartender|waiter|steward|venue (staff|host)|brand ambassador|promoter|event-driven|events? engineer/;
 // A region in the title, e.g. "BD Manager (Remote, Europe)", overrides a blank "worldwide" location field
 const TITLE_REGION = /\b(europe|emea|eu|eea|dach|nordics?|benelux|uk|us|usa|north america|americas|latam|germany|france|spain|italy|netherlands|poland|canada|australia|anz)\b/;
 const JUNIOR = /\bintern(ship)?\b|working student|werkstudent|\btrainee\b|graduate|\bjunior\b|\bjr\.?\b|entry[- ]level|apprentice|praktik|\bstage\b|alternance|\bthesis\b|student|\bassistant\b/;
@@ -56,6 +60,34 @@ function yearsRequired(text) {
     if (n <= 25 && (req === null || n > req)) { req = n; quote = m[0]; }
   }
   return { req, quote };
+}
+
+// Local-language requirement: returns e.g. "German" if the ad requires it (or is written in it), else "".
+const LANGS = "german|french|italian|spanish|dutch|swedish|norwegian|danish|finnish|polish|czech|portuguese|hungarian|romanian|greek";
+const LANG_REQ = new RegExp(`(fluent|fluency|native|proficien\\w*|excellent|business[- ]level|professional[- ]level|c1|c2|strong|very good|full professional)[^.;]{0,40}\\b(${LANGS})\\b|\\b(${LANGS})\\b[^.;]{0,30}(fluen\\w*|native|required|mandatory|essential|is a must|c1|c2|mother tongue)`, "g");
+const LANG_OPTIONAL = /\b(plus|nice[- ]to[- ]have|bonus|advantage|advantageous|preferred|desirable|beneficial|not required|a benefit)\b/;
+const STOPWORDS = {
+  German: /\b(und|wir|sie|für|mit|bei|oder|auf|eine?n?|ist|dein|deine|unser|über)\b/g,
+  French: /\b(nous|vous|et|les|des|pour|avec|une|dans|est|sur|votre)\b/g,
+  Italian: /\b(il|che|per|con|una|del|della|sono|nostro|tuo)\b/g,
+  Spanish: /\b(el|los|las|para|con|una|del|nuestro|tu|somos)\b/g,
+  Dutch: /\b(het|een|wij|jij|voor|met|onze|zijn|bij|naar)\b/g,
+  Swedish: /\b(och|att|vi|du|för|med|som|är|på|våra)\b/g,
+};
+function languageRequired(title, text) {
+  const english = (text.match(/\b(the|and|you|we|with|for|our|your|will|are)\b/g) || []).length;
+  for (const [lang, re] of Object.entries(STOPWORDS)) {
+    const n = (text.match(re) || []).length;
+    if (n > 25 && n > english * 1.2) return lang; // ad itself is written in that language
+  }
+  if (/\(m\/w\/d\)|\(w\/m\/d\)|:in\b|\/in\b/.test(title.toLowerCase())) return "German";
+  for (const m of text.matchAll(LANG_REQ)) {
+    const around = text.slice(Math.max(0, m.index - 30), m.index + m[0].length + 50);
+    if (LANG_OPTIONAL.test(around)) continue;
+    const lang = m[2] || m[3];
+    return lang[0].toUpperCase() + lang.slice(1);
+  }
+  return "";
 }
 
 function classifyTitle(title) {
@@ -164,7 +196,7 @@ async function fromCompanies() {
   return out;
 }
 
-const HIMALAYAS_Q = ["partnerships", "partner manager", "business development", "go to market", "gtm", "strategy", "strategic", "alliances", "channel", "chief of staff", "bizops", "business operations", "ecosystem", "expansion", "corporate development", "founders associate", "founder associate", "founders office", "associate to the ceo", "special projects", "generalist", "strategic initiatives", "commercial"];
+const HIMALAYAS_Q = ["partnerships", "partner manager", "business development", "go to market", "gtm", "strategy", "strategic", "alliances", "channel", "chief of staff", "bizops", "business operations", "ecosystem", "expansion", "corporate development", "founders associate", "founder associate", "founders office", "associate to the ceo", "special projects", "generalist", "strategic initiatives", "commercial", "partner success", "partner enablement", "cloud alliances", "program manager", "product marketing", "key account", "strategic account", "pricing", "monetization", "ai strategy", "ai adoption", "ai enablement", "ai operations", "ai automation", "ai partnerships", "ai gtm", "ai transformation", "ai consultant", "events", "event manager", "community manager", "field marketing"];
 async function fromHimalayas() {
   const out = [];
   const seen = new Set();
@@ -247,6 +279,7 @@ for (const j of raw) {
   const yrs = yearsRequired(text);
   if (yrs.req !== null && yrs.req > MAX_MIN_YEARS) { bump(`asks > ${MAX_MIN_YEARS} yrs experience`); continue; }
   if (tc.headOf && (yrs.req === null || yrs.req > MAX_MIN_YEARS)) { bump("Head-of title without a ≤5 yrs requirement"); continue; }
+  const language = languageRequired(j.title, text);
   const fit = yrs.req === null ? "Years not stated" : yrs.req <= MY_YEARS ? "Fits your experience" : "Slight stretch (5 yrs)";
 
   const isRemote = /remote|anywhere|worldwide|distributed|home[- ]?based|work from home|wfh/.test(loc) || j.source === "himalayas" || ["remoteok", "remotive", "jobicy", "workingnomads", "weworkremotely"].includes(j.source);
@@ -273,6 +306,9 @@ for (const j of raw) {
     tier = "Licensed UK visa sponsor"; evidence = "Company appears on the UK Home Office Register of Licensed Sponsors (ad is silent on visas — ask)";
   } else if (reg_ && !isRemote && !multiRegion && /netherlands|amsterdam|rotterdam|utrecht|the hague|eindhoven/.test(loc || (j.hq === "Netherlands" ? "netherlands" : "")) && onRegister(reg.NL, j.company)) {
     tier = "Recognised NL visa sponsor"; evidence = "Company appears on the IND public register of recognised sponsors (ad is silent on visas — ask)";
+  } else if (reg_ && !isRemote) {
+    // On-site/hybrid in Europe/UK/ANZ; the ad neither offers nor rules out sponsorship.
+    tier = "Ask about visa (not mentioned)"; evidence = "Ad doesn't mention visas either way" + (reg_ === "Europe/UK" && !/united kingdom|uk|london|switzerland|zurich|geneva|norway|oslo/.test(loc) ? " — EU Blue Card route likely available" : "") + ". Confirm with the recruiter before investing time.";
   }
   if (!tier) { bump(isRemote ? "remote but restricted to a non-India country" : "on-site, no sponsorship signal"); continue; }
 
@@ -284,7 +320,7 @@ for (const j of raw) {
   seen[id] ||= TODAY;
   jobs.push({
     id, title: j.title.trim(), company: (j.company || "").trim(), hq: (j.hq || HQ_BY_NAME.get(norm(j.company)) || "").replace(/_/g, " "), region: tier.startsWith("Remote") ? "Remote" : tier.startsWith("India") ? "India" : reg_,
-    location: j.location, tier, families: tc.families, fit, yearsAsked: yrs.req, yearsQuote: yrs.quote.slice(0, 160),
+    location: j.location, tier, families: tc.families, fit, yearsAsked: yrs.req, yearsQuote: yrs.quote.slice(0, 160), language,
     posted: posted && !isNaN(posted) ? posted.toISOString().slice(0, 10) : null, firstSeen: seen[id],
     url: j.url, source: j.source, evidence: evidence.slice(0, 320),
   });
