@@ -53,7 +53,7 @@
   "country": "UK",
   "ats": "lever",
   "slug": "zopa",
-  "jobs": 34
+  "jobs": 33
  },
  {
   "name": "OakNorth",
@@ -406,25 +406,11 @@
   "jobs": 9
  },
  {
-  "name": "Bink",
-  "country": "UK",
-  "ats": "recruitee",
-  "slug": "bink",
-  "jobs": 55
- },
- {
   "name": "Ophelos",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "ophelos",
   "jobs": 4
- },
- {
-  "name": "Ember",
-  "country": "UK",
-  "ats": "recruitee",
-  "slug": "ember",
-  "jobs": 27
  },
  {
   "name": "Uncapped",
@@ -613,7 +599,7 @@
   "country": "UK",
   "ats": "greenhouse",
   "slug": "helsing",
-  "jobs": 156
+  "jobs": 155
  },
  {
   "name": "Unlikely AI",
@@ -641,7 +627,7 @@
   "country": "UK",
   "ats": "greenhouse",
   "slug": "prolific",
-  "jobs": 31
+  "jobs": 32
  },
  {
   "name": "Instil",
@@ -732,7 +718,7 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "n26",
-  "jobs": 75
+  "jobs": 74
  },
  {
   "name": "Trade Republic",
@@ -765,7 +751,7 @@
  {
   "name": "Personio",
   "country": "Germany",
-  "ats": "recruitee",
+  "ats": "personio",
   "slug": "personio",
   "jobs": 1
  },
@@ -945,13 +931,6 @@
   "jobs": 6
  },
  {
-  "name": "Circula",
-  "country": "Germany",
-  "ats": "recruitee",
-  "slug": "circula",
-  "jobs": 2
- },
- {
   "name": "Candis",
   "country": "Germany",
   "ats": "personio",
@@ -999,13 +978,6 @@
   "ats": "greenhouse",
   "slug": "sumup",
   "jobs": 365
- },
- {
-  "name": "Adjust",
-  "country": "Germany",
-  "ats": "recruitee",
-  "slug": "adjust",
-  "jobs": 29
  },
  {
   "name": "Commercetools",
@@ -1283,9 +1255,9 @@
  {
   "name": "Instagrid",
   "country": "Germany",
-  "ats": "recruitee",
+  "ats": "personio",
   "slug": "instagrid",
-  "jobs": 11
+  "jobs": 2
  },
  {
   "name": "Buynomics",
@@ -1374,9 +1346,9 @@
  {
   "name": "Wonderkind",
   "country": "Germany",
-  "ats": "recruitee",
+  "ats": "smartrecruiters",
   "slug": "wonderkind",
-  "jobs": 2
+  "jobs": 3
  },
  {
   "name": "Urban Sports Club",
@@ -1411,7 +1383,7 @@
   "country": "France",
   "ats": "greenhouse",
   "slug": "doctolib",
-  "jobs": 154
+  "jobs": 153
  },
  {
   "name": "Pennylane",
@@ -1517,13 +1489,6 @@
   "ats": "lever",
   "slug": "brevo",
   "jobs": 25
- },
- {
-  "name": "Livestorm",
-  "country": "France",
-  "ats": "recruitee",
-  "slug": "livestorm",
-  "jobs": 2
  },
  {
   "name": "Lemlist",
@@ -1813,6 +1778,13 @@
   "jobs": 14
  },
  {
+  "name": "Pleo",
+  "country": "Sweden",
+  "ats": "ashby",
+  "slug": "pleo",
+  "jobs": 33
+ },
+ {
   "name": "Minna Technologies",
   "country": "Sweden",
   "ats": "smartrecruiters",
@@ -1855,6 +1827,13 @@
   "jobs": 46
  },
  {
+  "name": "Otovo",
+  "country": "Norway",
+  "ats": "recruitee",
+  "slug": "otovo",
+  "jobs": 37
+ },
+ {
   "name": "Sanity",
   "country": "Norway",
   "ats": "ashby",
@@ -1894,7 +1873,7 @@
   "country": "Denmark",
   "ats": "greenhouse",
   "slug": "trustpilot",
-  "jobs": 55
+  "jobs": 52
  },
  {
   "name": "Too Good To Go",
@@ -1930,13 +1909,6 @@
   "ats": "ashby",
   "slug": "worksome",
   "jobs": 1
- },
- {
-  "name": "Better Collective",
-  "country": "Denmark",
-  "ats": "recruitee",
-  "slug": "bettercollective",
-  "jobs": 15
  },
  {
   "name": "Penneo",
@@ -1999,7 +1971,7 @@
   "country": "Finland",
   "ats": "ashby",
   "slug": "sievo",
-  "jobs": 2
+  "jobs": 3
  },
  {
   "name": "Framery",
@@ -2079,13 +2051,6 @@
   "jobs": 3
  },
  {
-  "name": "Sympower",
-  "country": "Estonia_Latvia_Lithuania",
-  "ats": "recruitee",
-  "slug": "sympower",
-  "jobs": 1
- },
- {
   "name": "Salv",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "personio",
@@ -2112,6 +2077,13 @@
   "ats": "ashby",
   "slug": "hostinger",
   "jobs": 65
+ },
+ {
+  "name": "Eneba",
+  "country": "Estonia_Latvia_Lithuania",
+  "ats": "ashby",
+  "slug": "eneba",
+  "jobs": 30
  },
  {
   "name": "Testlio",
@@ -2153,7 +2125,7 @@
   "country": "Estonia_Latvia_Lithuania",
   "ats": "lever",
   "slug": "oxylabs",
-  "jobs": 56
+  "jobs": 53
  },
  {
   "name": "Attio",
@@ -2161,13 +2133,6 @@
   "ats": "ashby",
   "slug": "attio",
   "jobs": 41
- },
- {
-  "name": "PVcase",
-  "country": "Estonia_Latvia_Lithuania",
-  "ats": "recruitee",
-  "slug": "pvcase",
-  "jobs": 11
  },
  {
   "name": "TransferGo",
@@ -2270,9 +2235,9 @@
  {
   "name": "Channable",
   "country": "Netherlands",
-  "ats": "personio",
+  "ats": "recruitee",
   "slug": "channable",
-  "jobs": 1
+  "jobs": 15
  },
  {
   "name": "Tebi",
@@ -2310,11 +2275,18 @@
   "jobs": 6
  },
  {
+  "name": "Vandebron",
+  "country": "Netherlands",
+  "ats": "recruitee",
+  "slug": "vandebron",
+  "jobs": 12
+ },
+ {
   "name": "Quooker",
   "country": "Netherlands",
-  "ats": "personio",
+  "ats": "recruitee",
   "slug": "quooker",
-  "jobs": 3
+  "jobs": 27
  },
  {
   "name": "Spotahome",
@@ -2359,13 +2331,6 @@
   "jobs": 4
  },
  {
-  "name": "Brand New Day",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "brandnewday",
-  "jobs": 7
- },
- {
   "name": "Coinmerce",
   "country": "Netherlands",
   "ats": "personio",
@@ -2373,38 +2338,10 @@
   "jobs": 10
  },
  {
-  "name": "Seenons",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "seenons",
-  "jobs": 3
- },
- {
-  "name": "Wakuli",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "wakuli",
-  "jobs": 10
- },
- {
   "name": "Temper",
   "country": "Netherlands",
   "ats": "ashby",
   "slug": "temper",
-  "jobs": 5
- },
- {
-  "name": "Studytube",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "studytube",
-  "jobs": 10
- },
- {
-  "name": "Luscii",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "luscii",
   "jobs": 5
  },
  {
@@ -2912,13 +2849,6 @@
   "jobs": 41
  },
  {
-  "name": "Aikido",
-  "country": "Belgium_Luxembourg",
-  "ats": "recruitee",
-  "slug": "aikidosecurity",
-  "jobs": 80
- },
- {
   "name": "Silverfin",
   "country": "Belgium_Luxembourg",
   "ats": "lever",
@@ -2933,25 +2863,11 @@
   "jobs": 3
  },
  {
-  "name": "Robovision",
-  "country": "Belgium_Luxembourg",
-  "ats": "recruitee",
-  "slug": "robovision",
-  "jobs": 1
- },
- {
   "name": "Keyrock",
   "country": "Belgium_Luxembourg",
   "ats": "ashby",
   "slug": "keyrock",
   "jobs": 10
- },
- {
-  "name": "Payconiq",
-  "country": "Belgium_Luxembourg",
-  "ats": "recruitee",
-  "slug": "payconiq",
-  "jobs": 3
  },
  {
   "name": "Twikey",
@@ -2966,13 +2882,6 @@
   "ats": "greenhouse",
   "slug": "datacamp",
   "jobs": 34
- },
- {
-  "name": "Bizzy",
-  "country": "Belgium_Luxembourg",
-  "ats": "recruitee",
-  "slug": "bizzy",
-  "jobs": 1
  },
  {
   "name": "Salonkee",
@@ -3192,13 +3101,6 @@
   "jobs": 4
  },
  {
-  "name": "Celestia",
-  "country": "Global_Remote_First",
-  "ats": "recruitee",
-  "slug": "celestia",
-  "jobs": 1
- },
- {
   "name": "Eigen Labs",
   "country": "Global_Remote_First",
   "ats": "ashby",
@@ -3355,9 +3257,9 @@
  {
   "name": "Time Doctor",
   "country": "Global_Remote_First",
-  "ats": "recruitee",
+  "ats": "smartrecruiters",
   "slug": "timedoctor",
-  "jobs": 4
+  "jobs": 2
  },
  {
   "name": "Lemon.io",
@@ -3750,5 +3652,12 @@
   "ats": "ashby",
   "slug": "lightspeed",
   "jobs": 4
+ },
+ {
+  "name": "ZeroFriction",
+  "country": "New_Zealand",
+  "ats": "recruitee",
+  "slug": "zerofriction",
+  "jobs": 2
  }
 ]
