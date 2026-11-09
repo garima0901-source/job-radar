@@ -4,35 +4,35 @@
   "country": "UK",
   "ats": "greenhouse",
   "slug": "monzo",
-  "jobs": 63
+  "jobs": 58
  },
  {
   "name": "Wise",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "wise",
-  "jobs": 21
+  "jobs": 18
  },
  {
   "name": "Starling Bank",
   "country": "UK",
   "ats": "workable",
   "slug": "starling-bank",
-  "jobs": 109
+  "jobs": 102
  },
  {
   "name": "GoCardless",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "gocardless",
-  "jobs": 27
+  "jobs": 26
  },
  {
   "name": "Deliveroo",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "deliveroo",
-  "jobs": 201
+  "jobs": 200
  },
  {
   "name": "Cleo",
@@ -46,42 +46,42 @@
   "country": "UK",
   "ats": "greenhouse",
   "slug": "tide",
-  "jobs": 87
+  "jobs": 82
  },
  {
   "name": "Zopa",
   "country": "UK",
   "ats": "lever",
   "slug": "zopa",
-  "jobs": 35
+  "jobs": 32
  },
  {
   "name": "OakNorth",
   "country": "UK",
   "ats": "ashby",
   "slug": "oaknorth",
-  "jobs": 27
+  "jobs": 26
  },
  {
   "name": "Thought Machine",
   "country": "UK",
   "ats": "ashby",
   "slug": "thought-machine",
-  "jobs": 33
+  "jobs": 31
  },
  {
   "name": "Paddle",
   "country": "UK",
   "ats": "ashby",
   "slug": "paddle",
-  "jobs": 16
+  "jobs": 15
  },
  {
   "name": "Primer",
   "country": "UK",
   "ats": "ashby",
   "slug": "primer",
-  "jobs": 21
+  "jobs": 17
  },
  {
   "name": "TrueLayer",
@@ -95,7 +95,7 @@
   "country": "UK",
   "ats": "workable",
   "slug": "yapily",
-  "jobs": 4
+  "jobs": 2
  },
  {
   "name": "Moneybox",
@@ -116,14 +116,14 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "marshmallow",
-  "jobs": 13
+  "jobs": 14
  },
  {
   "name": "Zego",
   "country": "UK",
   "ats": "ashby",
   "slug": "zego",
-  "jobs": 36
+  "jobs": 35
  },
  {
   "name": "Gousto",
@@ -144,42 +144,42 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "elevenlabs",
-  "jobs": 141
+  "jobs": 136
  },
  {
   "name": "Stability AI",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "stabilityai",
-  "jobs": 3
+  "jobs": 1
  },
  {
   "name": "PolyAI",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "polyai",
-  "jobs": 1
+  "jobs": 3
  },
  {
   "name": "Faculty",
   "country": "UK",
   "ats": "ashby",
   "slug": "faculty",
-  "jobs": 85
+  "jobs": 93
  },
  {
   "name": "Wayve",
   "country": "UK",
   "ats": "ashby",
   "slug": "wayve",
-  "jobs": 175
+  "jobs": 173
  },
  {
   "name": "Tractable",
   "country": "UK",
   "ats": "ashby",
   "slug": "tractable",
-  "jobs": 4
+  "jobs": 5
  },
  {
   "name": "Cera",
@@ -193,7 +193,7 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "multiverse",
-  "jobs": 29
+  "jobs": 26
  },
  {
   "name": "Beamery",
@@ -207,42 +207,35 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "snyk",
-  "jobs": 37
+  "jobs": 39
  },
  {
   "name": "Motorway",
   "country": "UK",
   "ats": "ashby",
   "slug": "motorway",
-  "jobs": 17
+  "jobs": 19
  },
  {
   "name": "Lendable",
   "country": "UK",
   "ats": "ashby",
   "slug": "lendable",
-  "jobs": 68
+  "jobs": 76
  },
  {
   "name": "ComplyAdvantage",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "complyadvantage",
-  "jobs": 14
- },
- {
-  "name": "Signal AI",
-  "country": "UK",
-  "ats": "ashby",
-  "slug": "signal-ai",
-  "jobs": 3
+  "jobs": 15
  },
  {
   "name": "Quantexa",
   "country": "UK",
   "ats": "ashby",
   "slug": "quantexa",
-  "jobs": 39
+  "jobs": 45
  },
  {
   "name": "Peak AI",
@@ -263,42 +256,42 @@
   "country": "UK",
   "ats": "greenhouse",
   "slug": "beauhurst",
-  "jobs": 8
+  "jobs": 10
  },
  {
   "name": "Oyster HR",
   "country": "UK",
   "ats": "ashby",
   "slug": "oyster",
-  "jobs": 24
+  "jobs": 19
  },
  {
   "name": "Ebury",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "ebury",
-  "jobs": 161
+  "jobs": 162
  },
  {
   "name": "Modulr",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "modulrfinance",
-  "jobs": 24
+  "jobs": 23
  },
  {
   "name": "ClearBank",
   "country": "UK",
   "ats": "ashby",
   "slug": "clearbank",
-  "jobs": 7
+  "jobs": 9
  },
  {
   "name": "Griffin",
   "country": "UK",
   "ats": "ashby",
   "slug": "griffin",
-  "jobs": 5
+  "jobs": 7
  },
  {
   "name": "Kroo",
@@ -312,7 +305,7 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "allica-bank",
-  "jobs": 25
+  "jobs": 33
  },
  {
   "name": "Freetrade",
@@ -333,14 +326,14 @@
   "country": "UK",
   "ats": "greenhouse",
   "slug": "isomorphiclabs",
-  "jobs": 32
+  "jobs": 43
  },
  {
   "name": "CuspAI",
   "country": "UK",
   "ats": "ashby",
   "slug": "cuspai",
-  "jobs": 22
+  "jobs": 24
  },
  {
   "name": "PhysicsX",
@@ -368,7 +361,7 @@
   "country": "UK",
   "ats": "workable",
   "slug": "lyst",
-  "jobs": 9
+  "jobs": 8
  },
  {
   "name": "Numan",
@@ -382,7 +375,7 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "what3words",
-  "jobs": 5
+  "jobs": 3
  },
  {
   "name": "Improbable",
@@ -396,7 +389,7 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "carwow",
-  "jobs": 38
+  "jobs": 43
  },
  {
   "name": "Tembo",
@@ -406,32 +399,25 @@
   "jobs": 3
  },
  {
-  "name": "Bink",
+  "name": "10x Banking",
   "country": "UK",
-  "ats": "recruitee",
-  "slug": "bink",
-  "jobs": 50
+  "ats": "workable",
+  "slug": "10xbanking",
+  "jobs": 1
  },
  {
   "name": "Ophelos",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "ophelos",
-  "jobs": 7
- },
- {
-  "name": "Ember",
-  "country": "UK",
-  "ats": "recruitee",
-  "slug": "ember",
-  "jobs": 24
+  "jobs": 6
  },
  {
   "name": "Uncapped",
   "country": "UK",
   "ats": "workable",
   "slug": "uncapped",
-  "jobs": 9
+  "jobs": 4
  },
  {
   "name": "Duco",
@@ -445,63 +431,56 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "kaluza",
-  "jobs": 38
+  "jobs": 42
  },
  {
   "name": "Ohme",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "ohme",
-  "jobs": 22
+  "jobs": 25
  },
  {
   "name": "Zilch",
   "country": "UK",
   "ats": "ashby",
   "slug": "zilch",
-  "jobs": 11
+  "jobs": 12
  },
  {
   "name": "Airalo",
   "country": "UK",
   "ats": "lever",
   "slug": "airalo",
-  "jobs": 17
- },
- {
-  "name": "Vinterior",
-  "country": "UK",
-  "ats": "workable",
-  "slug": "vinterior",
-  "jobs": 1
+  "jobs": 10
  },
  {
   "name": "Hyperexponential",
   "country": "UK",
   "ats": "ashby",
   "slug": "hyperexponential",
-  "jobs": 35
+  "jobs": 36
  },
  {
   "name": "Artificial",
   "country": "UK",
   "ats": "ashby",
   "slug": "artificial",
-  "jobs": 10
+  "jobs": 5
  },
  {
   "name": "Flock",
   "country": "UK",
   "ats": "ashby",
   "slug": "flock",
-  "jobs": 9
+  "jobs": 10
  },
  {
   "name": "Laka",
   "country": "UK",
   "ats": "workable",
   "slug": "laka",
-  "jobs": 10
+  "jobs": 7
  },
  {
   "name": "Trustonic",
@@ -515,28 +494,28 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "ravio",
-  "jobs": 4
+  "jobs": 3
  },
  {
   "name": "Gearset",
   "country": "UK",
   "ats": "ashby",
   "slug": "gearset",
-  "jobs": 12
+  "jobs": 11
  },
  {
   "name": "Heron Data",
   "country": "UK",
   "ats": "ashby",
   "slug": "herondata",
-  "jobs": 3
+  "jobs": 2
  },
  {
   "name": "Lantum",
   "country": "UK",
   "ats": "workable",
   "slug": "lantum",
-  "jobs": 1
+  "jobs": 2
  },
  {
   "name": "Birdie",
@@ -550,7 +529,7 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "accurx",
-  "jobs": 12
+  "jobs": 14
  },
  {
   "name": "Patchwork Health",
@@ -564,14 +543,14 @@
   "country": "UK",
   "ats": "greenhouse",
   "slug": "dojo",
-  "jobs": 24
+  "jobs": 10
  },
  {
   "name": "Butternut Box",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "butternutbox",
-  "jobs": 48
+  "jobs": 47
  },
  {
   "name": "Mintago",
@@ -592,14 +571,14 @@
   "country": "UK",
   "ats": "lever",
   "slug": "quantinuum",
-  "jobs": 130
+  "jobs": 131
  },
  {
   "name": "Riverlane",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "riverlane",
-  "jobs": 39
+  "jobs": 31
  },
  {
   "name": "Luminous",
@@ -609,18 +588,25 @@
   "jobs": 4
  },
  {
+  "name": "Adarga",
+  "country": "UK",
+  "ats": "recruitee",
+  "slug": "adarga",
+  "jobs": 2
+ },
+ {
   "name": "Helsing",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "helsing",
-  "jobs": 160
+  "jobs": 159
  },
  {
   "name": "Unlikely AI",
   "country": "UK",
   "ats": "ashby",
   "slug": "unlikelyai",
-  "jobs": 1
+  "jobs": 2
  },
  {
   "name": "Maze",
@@ -634,14 +620,14 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "encord",
-  "jobs": 35
+  "jobs": 40
  },
  {
   "name": "Prolific",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "prolific",
-  "jobs": 30
+  "jobs": 28
  },
  {
   "name": "Instil",
@@ -651,32 +637,25 @@
   "jobs": 1
  },
  {
-  "name": "Cogna",
-  "country": "UK",
-  "ats": "workable",
-  "slug": "cogna",
-  "jobs": 3
- },
- {
   "name": "Wordsmith",
   "country": "UK",
   "ats": "ashby",
   "slug": "wordsmith",
-  "jobs": 24
+  "jobs": 27
  },
  {
   "name": "Granola",
   "country": "UK",
   "ats": "ashby",
   "slug": "granola",
-  "jobs": 22
+  "jobs": 20
  },
  {
   "name": "Flo Health",
   "country": "UK",
   "ats": "greenhouse",
   "slug": "flohealth",
-  "jobs": 33
+  "jobs": 31
  },
  {
   "name": "Fyxer",
@@ -690,14 +669,7 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "nory",
-  "jobs": 5
- },
- {
-  "name": "Satellite Vu",
-  "country": "UK",
-  "ats": "workable",
-  "slug": "satellitevu",
-  "jobs": 1
+  "jobs": 4
  },
  {
   "name": "Nethermind",
@@ -718,14 +690,14 @@
   "country": "UK",
   "ats": "ashby",
   "slug": "codat",
-  "jobs": 6
+  "jobs": 2
  },
  {
   "name": "Hyperscience",
   "country": "UK",
   "ats": "ashby",
   "slug": "hyperscience",
-  "jobs": 1
+  "jobs": 3
  },
  {
   "name": "Speechmatics",
@@ -739,28 +711,28 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "n26",
-  "jobs": 32
+  "jobs": 36
  },
  {
   "name": "Raisin",
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "raisin",
-  "jobs": 33
+  "jobs": 31
  },
  {
   "name": "Solaris",
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "solarisbank",
-  "jobs": 18
+  "jobs": 19
  },
  {
   "name": "Celonis",
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "celonis",
-  "jobs": 235
+  "jobs": 233
  },
  {
   "name": "Contentful",
@@ -770,46 +742,39 @@
   "jobs": 29
  },
  {
-  "name": "GetYourGuide",
-  "country": "Germany",
-  "ats": "greenhouse",
-  "slug": "getyourguide",
-  "jobs": 71
- },
- {
   "name": "Flix",
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "flix",
-  "jobs": 128
+  "jobs": 163
  },
  {
   "name": "Enpal",
   "country": "Germany",
   "ats": "ashby",
   "slug": "enpal",
-  "jobs": 164
+  "jobs": 166
  },
  {
   "name": "1Komma5",
   "country": "Germany",
   "ats": "personio",
   "slug": "1komma5grad",
-  "jobs": 311
+  "jobs": 325
  },
  {
   "name": "Forto",
   "country": "Germany",
   "ats": "ashby",
   "slug": "forto",
-  "jobs": 9
+  "jobs": 8
  },
  {
   "name": "Clark",
   "country": "Germany",
   "ats": "ashby",
   "slug": "clark",
-  "jobs": 21
+  "jobs": 18
  },
  {
   "name": "Grover",
@@ -823,7 +788,7 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "choco",
-  "jobs": 1
+  "jobs": 2
  },
  {
   "name": "Aleph Alpha",
@@ -844,14 +809,14 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "black-forest-labs",
-  "jobs": 14
+  "jobs": 15
  },
  {
   "name": "Parloa",
   "country": "Germany",
-  "ats": "greenhouse",
+  "ats": "ashby",
   "slug": "parloa",
-  "jobs": 45
+  "jobs": 43
  },
  {
   "name": "n8n",
@@ -865,7 +830,7 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "staffbase",
-  "jobs": 26
+  "jobs": 29
  },
  {
   "name": "Moss",
@@ -879,28 +844,28 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "pliant",
-  "jobs": 35
+  "jobs": 40
  },
  {
   "name": "Billie",
   "country": "Germany",
   "ats": "ashby",
   "slug": "billie",
-  "jobs": 3
+  "jobs": 2
  },
  {
   "name": "Upvest",
   "country": "Germany",
   "ats": "ashby",
   "slug": "upvest",
-  "jobs": 23
+  "jobs": 24
  },
  {
   "name": "Finn",
   "country": "Germany",
   "ats": "lever",
   "slug": "finn",
-  "jobs": 29
+  "jobs": 30
  },
  {
   "name": "Omio",
@@ -914,21 +879,21 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "babbel",
-  "jobs": 11
+  "jobs": 10
  },
  {
   "name": "Tourlane",
   "country": "Germany",
   "ats": "ashby",
   "slug": "tourlane",
-  "jobs": 4
+  "jobs": 3
  },
  {
   "name": "Zenjob",
   "country": "Germany",
   "ats": "ashby",
   "slug": "zenjob",
-  "jobs": 10
+  "jobs": 11
  },
  {
   "name": "Deskbird",
@@ -949,21 +914,21 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "isaraerospace",
-  "jobs": 138
+  "jobs": 141
  },
  {
   "name": "Konux",
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "konux",
-  "jobs": 2
+  "jobs": 3
  },
  {
   "name": "SumUp",
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "sumup",
-  "jobs": 357
+  "jobs": 342
  },
  {
   "name": "Adjust",
@@ -991,7 +956,7 @@
   "country": "Germany",
   "ats": "lever",
   "slug": "unzer",
-  "jobs": 14
+  "jobs": 13
  },
  {
   "name": "Kaia Health",
@@ -1005,28 +970,21 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "avimedical",
-  "jobs": 41
- },
- {
-  "name": "Temedica",
-  "country": "Germany",
-  "ats": "personio",
-  "slug": "temedica",
-  "jobs": 2
+  "jobs": 42
  },
  {
   "name": "Enmacc",
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "enmacc",
-  "jobs": 2
+  "jobs": 3
  },
  {
   "name": "Remberg",
   "country": "Germany",
   "ats": "ashby",
   "slug": "remberg",
-  "jobs": 4
+  "jobs": 3
  },
  {
   "name": "Merantix",
@@ -1047,21 +1005,21 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "proxima-fusion",
-  "jobs": 52
+  "jobs": 55
  },
  {
   "name": "Marvel Fusion",
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "marvelfusion",
-  "jobs": 15
+  "jobs": 18
  },
  {
   "name": "The Exploration Company",
   "country": "Germany",
   "ats": "ashby",
   "slug": "the-exploration-company",
-  "jobs": 117
+  "jobs": 124
  },
  {
   "name": "Planet A Foods",
@@ -1075,7 +1033,7 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "airup",
-  "jobs": 2
+  "jobs": 1
  },
  {
   "name": "Knowunity",
@@ -1089,28 +1047,28 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "gostudent",
-  "jobs": 25
+  "jobs": 27
  },
  {
   "name": "Heyday",
   "country": "Germany",
   "ats": "recruitee",
   "slug": "heyday",
-  "jobs": 4
+  "jobs": 5
  },
  {
   "name": "Holidu",
   "country": "Germany",
   "ats": "ashby",
   "slug": "holidu",
-  "jobs": 6
+  "jobs": 8
  },
  {
   "name": "Finanzguru",
   "country": "Germany",
   "ats": "personio",
   "slug": "finanzguru",
-  "jobs": 3
+  "jobs": 2
  },
  {
   "name": "Bonify",
@@ -1124,14 +1082,14 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "qonto",
-  "jobs": 50
+  "jobs": 53
  },
  {
   "name": "Agicap",
   "country": "Germany",
   "ats": "lever",
   "slug": "agicap",
-  "jobs": 22
+  "jobs": 18
  },
  {
   "name": "Tomorrow Bank",
@@ -1145,7 +1103,7 @@
   "country": "Germany",
   "ats": "personio",
   "slug": "vivid",
-  "jobs": 22
+  "jobs": 18
  },
  {
   "name": "Gnosis",
@@ -1159,28 +1117,28 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "safe",
-  "jobs": 20
+  "jobs": 22
  },
  {
   "name": "Matter Labs",
   "country": "Germany",
   "ats": "ashby",
   "slug": "matter-labs",
-  "jobs": 4
+  "jobs": 3
  },
  {
   "name": "Contentsquare",
   "country": "Germany",
   "ats": "lever",
   "slug": "contentsquare",
-  "jobs": 19
+  "jobs": 29
  },
  {
   "name": "Ottonova",
   "country": "Germany",
   "ats": "personio",
   "slug": "ottonova",
-  "jobs": 9
+  "jobs": 8
  },
  {
   "name": "Ratepay",
@@ -1194,7 +1152,7 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "vay",
-  "jobs": 17
+  "jobs": 18
  },
  {
   "name": "Tado",
@@ -1208,7 +1166,7 @@
   "country": "Germany",
   "ats": "personio",
   "slug": "thermondo",
-  "jobs": 200
+  "jobs": 196
  },
  {
   "name": "Node.energy",
@@ -1243,7 +1201,7 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "uberall",
-  "jobs": 10
+  "jobs": 7
  },
  {
   "name": "Userlane",
@@ -1257,21 +1215,14 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "mentimeter",
-  "jobs": 18
+  "jobs": 15
  },
  {
   "name": "Luminovo",
   "country": "Germany",
   "ats": "ashby",
   "slug": "luminovo",
-  "jobs": 4
- },
- {
-  "name": "Workpath",
-  "country": "Germany",
-  "ats": "personio",
-  "slug": "workpath",
-  "jobs": 1
+  "jobs": 5
  },
  {
   "name": "Rasa",
@@ -1285,14 +1236,14 @@
   "country": "Germany",
   "ats": "ashby",
   "slug": "langdock",
-  "jobs": 9
+  "jobs": 11
  },
  {
   "name": "Tacto",
   "country": "Germany",
   "ats": "ashby",
   "slug": "tacto",
-  "jobs": 23
+  "jobs": 20
  },
  {
   "name": "Flink",
@@ -1306,7 +1257,7 @@
   "country": "Germany",
   "ats": "greenhouse",
   "slug": "wolt",
-  "jobs": 199
+  "jobs": 206
  },
  {
   "name": "Auto1",
@@ -1323,37 +1274,30 @@
   "jobs": 3
  },
  {
-  "name": "Urban Sports Club",
-  "country": "Germany",
-  "ats": "greenhouse",
-  "slug": "urbansportsclub",
-  "jobs": 2
- },
- {
   "name": "Egym",
   "country": "Germany",
   "ats": "ashby",
   "slug": "egym",
-  "jobs": 45
+  "jobs": 48
  },
  {
   "name": "Frontify",
   "country": "Germany",
   "ats": "ashby",
   "slug": "frontify",
-  "jobs": 18
+  "jobs": 16
  },
  {
   "name": "Alan",
   "country": "France",
   "ats": "ashby",
   "slug": "alan",
-  "jobs": 130
+  "jobs": 133
  },
  {
   "name": "Doctolib",
   "country": "France",
-  "ats": "greenhouse",
+  "ats": "ashby",
   "slug": "doctolib",
   "jobs": 153
  },
@@ -1362,35 +1306,35 @@
   "country": "France",
   "ats": "ashby",
   "slug": "pennylane",
-  "jobs": 177
+  "jobs": 203
  },
  {
   "name": "Swile",
   "country": "France",
   "ats": "lever",
   "slug": "swile",
-  "jobs": 33
+  "jobs": 31
  },
  {
   "name": "Mirakl",
   "country": "France",
   "ats": "greenhouse",
   "slug": "mirakl",
-  "jobs": 30
+  "jobs": 26
  },
  {
   "name": "Back Market",
   "country": "France",
   "ats": "ashby",
   "slug": "backmarket",
-  "jobs": 33
+  "jobs": 34
  },
  {
   "name": "Ledger",
   "country": "France",
   "ats": "ashby",
   "slug": "ledger",
-  "jobs": 12
+  "jobs": 14
  },
  {
   "name": "Sorare",
@@ -1411,28 +1355,28 @@
   "country": "France",
   "ats": "greenhouse",
   "slug": "dataiku",
-  "jobs": 16
+  "jobs": 15
  },
  {
   "name": "Algolia",
   "country": "France",
   "ats": "greenhouse",
   "slug": "algolia",
-  "jobs": 26
+  "jobs": 28
  },
  {
   "name": "Malt",
   "country": "France",
   "ats": "lever",
   "slug": "malt",
-  "jobs": 26
+  "jobs": 29
  },
  {
   "name": "Shift Technology",
   "country": "France",
   "ats": "greenhouse",
   "slug": "shifttechnology",
-  "jobs": 17
+  "jobs": 15
  },
  {
   "name": "Vestiaire Collective",
@@ -1446,14 +1390,14 @@
   "country": "France",
   "ats": "lever",
   "slug": "blablacar",
-  "jobs": 8
+  "jobs": 6
  },
  {
   "name": "Brevo",
   "country": "France",
   "ats": "lever",
   "slug": "brevo",
-  "jobs": 26
+  "jobs": 28
  },
  {
   "name": "Livestorm",
@@ -1474,35 +1418,35 @@
   "country": "France",
   "ats": "ashby",
   "slug": "dust",
-  "jobs": 32
+  "jobs": 31
  },
  {
   "name": "Photoroom",
   "country": "France",
   "ats": "ashby",
   "slug": "photoroom",
-  "jobs": 10
+  "jobs": 8
  },
  {
   "name": "H Company",
   "country": "France",
   "ats": "ashby",
   "slug": "hcompany",
-  "jobs": 36
+  "jobs": 33
  },
  {
   "name": "Poolside",
   "country": "France",
   "ats": "ashby",
   "slug": "poolside",
-  "jobs": 2
+  "jobs": 4
  },
  {
   "name": "Pigment",
   "country": "France",
   "ats": "lever",
   "slug": "pigment",
-  "jobs": 129
+  "jobs": 127
  },
  {
   "name": "Swan",
@@ -1523,7 +1467,7 @@
   "country": "France",
   "ats": "ashby",
   "slug": "sunday",
-  "jobs": 22
+  "jobs": 23
  },
  {
   "name": "Zenchef",
@@ -1537,35 +1481,35 @@
   "country": "France",
   "ats": "recruitee",
   "slug": "matera",
-  "jobs": 17
+  "jobs": 18
  },
  {
   "name": "Verkor",
   "country": "France",
   "ats": "lever",
   "slug": "verkor",
-  "jobs": 43
+  "jobs": 39
  },
  {
   "name": "Owkin",
   "country": "France",
   "ats": "ashby",
   "slug": "owkin",
-  "jobs": 7
+  "jobs": 10
  },
  {
   "name": "Nabla",
   "country": "France",
   "ats": "ashby",
   "slug": "nabla",
-  "jobs": 9
+  "jobs": 10
  },
  {
   "name": "EcoVadis",
   "country": "France",
   "ats": "smartrecruiters",
   "slug": "ecovadis",
-  "jobs": 24
+  "jobs": 25
  },
  {
   "name": "Sweep",
@@ -1586,56 +1530,63 @@
   "country": "France",
   "ats": "greenhouse",
   "slug": "flowdesk",
-  "jobs": 12
+  "jobs": 14
  },
  {
   "name": "Heetch",
   "country": "France",
   "ats": "lever",
   "slug": "heetch",
-  "jobs": 22
+  "jobs": 23
  },
  {
   "name": "Jobteaser",
   "country": "France",
   "ats": "smartrecruiters",
   "slug": "jobteaser",
-  "jobs": 8
+  "jobs": 9
  },
  {
   "name": "Crisp",
   "country": "France",
   "ats": "ashby",
   "slug": "crisp",
-  "jobs": 40
+  "jobs": 39
  },
  {
   "name": "Scaleway",
   "country": "France",
   "ats": "lever",
   "slug": "scaleway",
-  "jobs": 34
+  "jobs": 33
  },
  {
   "name": "Platform.sh",
   "country": "France",
   "ats": "greenhouse",
   "slug": "platformsh",
-  "jobs": 8
+  "jobs": 7
+ },
+ {
+  "name": "Alma",
+  "country": "France",
+  "ats": "ashby",
+  "slug": "alma",
+  "jobs": 24
  },
  {
   "name": "Younited",
   "country": "France",
   "ats": "lever",
   "slug": "younited",
-  "jobs": 8
+  "jobs": 6
  },
  {
   "name": "Voodoo",
   "country": "France",
   "ats": "ashby",
   "slug": "voodoo",
-  "jobs": 103
+  "jobs": 104
  },
  {
   "name": "Believe",
@@ -1645,53 +1596,60 @@
   "jobs": 27
  },
  {
+  "name": "Dailymotion",
+  "country": "France",
+  "ats": "smartrecruiters",
+  "slug": "dailymotion",
+  "jobs": 1
+ },
+ {
   "name": "Doctrine",
   "country": "France",
   "ats": "lever",
   "slug": "doctrine",
-  "jobs": 37
+  "jobs": 34
  },
  {
   "name": "Epidemic Sound",
   "country": "Sweden",
   "ats": "ashby",
   "slug": "epidemic-sound",
-  "jobs": 30
+  "jobs": 26
  },
  {
   "name": "Trustly",
   "country": "Sweden",
   "ats": "ashby",
   "slug": "trustly",
-  "jobs": 39
+  "jobs": 44
  },
  {
   "name": "Lovable",
   "country": "Sweden",
   "ats": "greenhouse",
   "slug": "lovable",
-  "jobs": 61
+  "jobs": 59
  },
  {
   "name": "Legora",
   "country": "Sweden",
   "ats": "ashby",
   "slug": "legora",
-  "jobs": 306
+  "jobs": 318
  },
  {
   "name": "Juni",
   "country": "Sweden",
   "ats": "personio",
   "slug": "juni",
-  "jobs": 8
+  "jobs": 9
  },
  {
   "name": "Truecaller",
   "country": "Sweden",
   "ats": "greenhouse",
   "slug": "truecaller",
-  "jobs": 33
+  "jobs": 37
  },
  {
   "name": "Alva Labs",
@@ -1705,14 +1663,14 @@
   "country": "Sweden",
   "ats": "ashby",
   "slug": "kognity",
-  "jobs": 4
+  "jobs": 3
  },
  {
   "name": "Neko Health",
   "country": "Sweden",
   "ats": "ashby",
   "slug": "neko-health",
-  "jobs": 131
+  "jobs": 122
  },
  {
   "name": "Lunar",
@@ -1726,7 +1684,7 @@
   "country": "Sweden",
   "ats": "ashby",
   "slug": "pleo",
-  "jobs": 39
+  "jobs": 38
  },
  {
   "name": "Minna Technologies",
@@ -1754,28 +1712,28 @@
   "country": "Sweden",
   "ats": "greenhouse",
   "slug": "cellink",
-  "jobs": 33
+  "jobs": 30
  },
  {
   "name": "Cognite",
   "country": "Norway",
   "ats": "greenhouse",
   "slug": "cognite",
-  "jobs": 54
- },
- {
-  "name": "Otovo",
-  "country": "Norway",
-  "ats": "recruitee",
-  "slug": "otovo",
-  "jobs": 50
+  "jobs": 53
  },
  {
   "name": "Sanity",
   "country": "Norway",
   "ats": "ashby",
   "slug": "sanity",
-  "jobs": 33
+  "jobs": 32
+ },
+ {
+  "name": "Whereby",
+  "country": "Norway",
+  "ats": "lever",
+  "slug": "whereby",
+  "jobs": 2
  },
  {
   "name": "Boost.ai",
@@ -1796,42 +1754,42 @@
   "country": "Norway",
   "ats": "ashby",
   "slug": "gelato",
-  "jobs": 1
+  "jobs": 3
  },
  {
   "name": "Trustpilot",
   "country": "Denmark",
   "ats": "greenhouse",
   "slug": "trustpilot",
-  "jobs": 45
+  "jobs": 34
  },
  {
   "name": "Too Good To Go",
   "country": "Denmark",
   "ats": "ashby",
   "slug": "toogoodtogo",
-  "jobs": 49
+  "jobs": 58
  },
  {
   "name": "Veo",
   "country": "Denmark",
   "ats": "lever",
   "slug": "veo",
-  "jobs": 22
+  "jobs": 23
  },
  {
   "name": "Siteimprove",
   "country": "Denmark",
   "ats": "lever",
   "slug": "siteimprove",
-  "jobs": 12
+  "jobs": 13
  },
  {
   "name": "Corti",
   "country": "Denmark",
   "ats": "ashby",
   "slug": "corti",
-  "jobs": 4
+  "jobs": 3
  },
  {
   "name": "Worksome",
@@ -1841,39 +1799,46 @@
   "jobs": 1
  },
  {
+  "name": "Better Collective",
+  "country": "Denmark",
+  "ats": "recruitee",
+  "slug": "bettercollective",
+  "jobs": 8
+ },
+ {
   "name": "Supercell",
   "country": "Finland",
   "ats": "ashby",
   "slug": "supercell",
-  "jobs": 35
+  "jobs": 34
  },
  {
   "name": "Oura",
   "country": "Finland",
   "ats": "greenhouse",
   "slug": "oura",
-  "jobs": 95
+  "jobs": 97
  },
  {
   "name": "Smartly",
   "country": "Finland",
   "ats": "greenhouse",
   "slug": "smartlyio",
-  "jobs": 61
+  "jobs": 64
  },
  {
   "name": "ICEYE",
   "country": "Finland",
   "ats": "ashby",
   "slug": "iceye",
-  "jobs": 201
+  "jobs": 192
  },
  {
   "name": "Relex",
   "country": "Finland",
   "ats": "greenhouse",
   "slug": "relex",
-  "jobs": 43
+  "jobs": 40
  },
  {
   "name": "Yousician",
@@ -1894,14 +1859,14 @@
   "country": "Finland",
   "ats": "lever",
   "slug": "iqm",
-  "jobs": 7
+  "jobs": 8
  },
  {
   "name": "Hoxhunt",
   "country": "Finland",
   "ats": "ashby",
   "slug": "hoxhunt",
-  "jobs": 15
+  "jobs": 9
  },
  {
   "name": "Remedy",
@@ -1936,14 +1901,14 @@
   "country": "Estonia_Latvia_Lithuania",
   "ats": "greenhouse",
   "slug": "veriff",
-  "jobs": 13
+  "jobs": 11
  },
  {
   "name": "Glia",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "ashby",
   "slug": "glia",
-  "jobs": 19
+  "jobs": 26
  },
  {
   "name": "Starship",
@@ -1953,11 +1918,11 @@
   "jobs": 3
  },
  {
-  "name": "Katana",
+  "name": "Sympower",
   "country": "Estonia_Latvia_Lithuania",
-  "ats": "ashby",
-  "slug": "katana",
-  "jobs": 3
+  "ats": "recruitee",
+  "slug": "sympower",
+  "jobs": 2
  },
  {
   "name": "Salv",
@@ -1971,28 +1936,28 @@
   "country": "Estonia_Latvia_Lithuania",
   "ats": "ashby",
   "slug": "nord-security",
-  "jobs": 135
+  "jobs": 128
  },
  {
   "name": "Omnisend",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "lever",
   "slug": "omnisend",
-  "jobs": 17
+  "jobs": 16
  },
  {
   "name": "Hostinger",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "ashby",
   "slug": "hostinger",
-  "jobs": 48
+  "jobs": 44
  },
  {
   "name": "Eneba",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "ashby",
   "slug": "eneba",
-  "jobs": 40
+  "jobs": 38
  },
  {
   "name": "Testlio",
@@ -2006,7 +1971,7 @@
   "country": "Estonia_Latvia_Lithuania",
   "ats": "greenhouse",
   "slug": "inbank",
-  "jobs": 18
+  "jobs": 15
  },
  {
   "name": "Kevin",
@@ -2027,70 +1992,56 @@
   "country": "Estonia_Latvia_Lithuania",
   "ats": "ashby",
   "slug": "surfshark",
-  "jobs": 33
+  "jobs": 36
  },
  {
   "name": "Attio",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "ashby",
   "slug": "attio",
-  "jobs": 23
- },
- {
-  "name": "PVcase",
-  "country": "Estonia_Latvia_Lithuania",
-  "ats": "recruitee",
-  "slug": "pvcase",
-  "jobs": 10
+  "jobs": 24
  },
  {
   "name": "TransferGo",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "greenhouse",
   "slug": "transfergo",
-  "jobs": 9
+  "jobs": 10
  },
  {
   "name": "Nfq",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "lever",
   "slug": "nfq",
-  "jobs": 10
+  "jobs": 11
  },
  {
   "name": "Nortal",
   "country": "Estonia_Latvia_Lithuania",
   "ats": "greenhouse",
   "slug": "nortal",
-  "jobs": 28
+  "jobs": 22
  },
  {
   "name": "Mollie",
   "country": "Netherlands",
   "ats": "ashby",
   "slug": "mollie",
-  "jobs": 53
- },
- {
-  "name": "Bunq",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "bunq",
-  "jobs": 25
+  "jobs": 51
  },
  {
   "name": "Bitvavo",
   "country": "Netherlands",
   "ats": "ashby",
   "slug": "bitvavo",
-  "jobs": 15
+  "jobs": 16
  },
  {
   "name": "Bird",
   "country": "Netherlands",
   "ats": "greenhouse",
   "slug": "bird",
-  "jobs": 33
+  "jobs": 28
  },
  {
   "name": "Picnic",
@@ -2104,56 +2055,35 @@
   "country": "Netherlands",
   "ats": "ashby",
   "slug": "miro",
-  "jobs": 19
+  "jobs": 21
  },
  {
   "name": "Catawiki",
   "country": "Netherlands",
   "ats": "greenhouse",
   "slug": "catawiki",
-  "jobs": 40
- },
- {
-  "name": "Fastned",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "fastned",
-  "jobs": 40
+  "jobs": 44
  },
  {
   "name": "Lepaya",
   "country": "Netherlands",
   "ats": "personio",
   "slug": "lepaya",
-  "jobs": 1
- },
- {
-  "name": "Effectory",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "effectory",
-  "jobs": 6
- },
- {
-  "name": "Channable",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "channable",
-  "jobs": 14
+  "jobs": 2
  },
  {
   "name": "Tebi",
   "country": "Netherlands",
   "ats": "ashby",
   "slug": "tebi",
-  "jobs": 18
+  "jobs": 20
  },
  {
   "name": "Ohpen",
   "country": "Netherlands",
   "ats": "personio",
   "slug": "ohpen",
-  "jobs": 16
+  "jobs": 15
  },
  {
   "name": "Recharge",
@@ -2177,11 +2107,18 @@
   "jobs": 9
  },
  {
-  "name": "Spotahome",
+  "name": "Vandebron",
   "country": "Netherlands",
-  "ats": "personio",
-  "slug": "spotahome",
-  "jobs": 1
+  "ats": "recruitee",
+  "slug": "vandebron",
+  "jobs": 6
+ },
+ {
+  "name": "Quooker",
+  "country": "Netherlands",
+  "ats": "recruitee",
+  "slug": "quooker",
+  "jobs": 28
  },
  {
   "name": "Ultimate",
@@ -2195,14 +2132,21 @@
   "country": "Netherlands",
   "ats": "ashby",
   "slug": "fuse",
-  "jobs": 44
+  "jobs": 42
+ },
+ {
+  "name": "Nmbrs",
+  "country": "Netherlands",
+  "ats": "recruitee",
+  "slug": "nmbrs",
+  "jobs": 9
  },
  {
   "name": "Bloomon",
   "country": "Netherlands",
   "ats": "lever",
   "slug": "bloomon",
-  "jobs": 15
+  "jobs": 16
  },
  {
   "name": "Snappet",
@@ -2217,6 +2161,13 @@
   "ats": "smartrecruiters",
   "slug": "hackajob",
   "jobs": 4
+ },
+ {
+  "name": "Brand New Day",
+  "country": "Netherlands",
+  "ats": "recruitee",
+  "slug": "brandnewday",
+  "jobs": 10
  },
  {
   "name": "Coinmerce",
@@ -2254,32 +2205,11 @@
   "jobs": 5
  },
  {
-  "name": "Studytube",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "studytube",
-  "jobs": 6
- },
- {
-  "name": "Healthy Workers",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "healthyworkers",
-  "jobs": 4
- },
- {
-  "name": "Luscii",
-  "country": "Netherlands",
-  "ats": "recruitee",
-  "slug": "luscii",
-  "jobs": 6
- },
- {
   "name": "Mendix",
   "country": "Netherlands",
   "ats": "lever",
   "slug": "mendix",
-  "jobs": 48
+  "jobs": 44
  },
  {
   "name": "Intercom",
@@ -2293,21 +2223,21 @@
   "country": "Ireland",
   "ats": "ashby",
   "slug": "wayflyer",
-  "jobs": 15
+  "jobs": 12
  },
  {
   "name": "Tines",
   "country": "Ireland",
   "ats": "greenhouse",
   "slug": "tines",
-  "jobs": 35
+  "jobs": 34
  },
  {
   "name": "Flipdish",
   "country": "Ireland",
   "ats": "greenhouse",
   "slug": "flipdish",
-  "jobs": 13
+  "jobs": 10
  },
  {
   "name": "LetsGetChecked",
@@ -2326,7 +2256,7 @@
  {
   "name": "Kitman Labs",
   "country": "Ireland",
-  "ats": "smartrecruiters",
+  "ats": "lever",
   "slug": "kitmanlabs",
   "jobs": 1
  },
@@ -2349,7 +2279,7 @@
   "country": "Ireland",
   "ats": "greenhouse",
   "slug": "poppulo",
-  "jobs": 9
+  "jobs": 10
  },
  {
   "name": "Qualio",
@@ -2398,21 +2328,14 @@
   "country": "Switzerland",
   "ats": "greenhouse",
   "slug": "scandit",
-  "jobs": 11
- },
- {
-  "name": "Climeworks",
-  "country": "Switzerland",
-  "ats": "recruitee",
-  "slug": "climeworks",
-  "jobs": 3
+  "jobs": 9
  },
  {
   "name": "Nexthink",
   "country": "Switzerland",
   "ats": "smartrecruiters",
   "slug": "nexthink",
-  "jobs": 62
+  "jobs": 64
  },
  {
   "name": "ANYbotics",
@@ -2433,7 +2356,7 @@
   "country": "Switzerland",
   "ats": "ashby",
   "slug": "deepjudge",
-  "jobs": 21
+  "jobs": 24
  },
  {
   "name": "Proton",
@@ -2461,14 +2384,14 @@
   "country": "Switzerland",
   "ats": "smartrecruiters",
   "slug": "swissquote",
-  "jobs": 48
+  "jobs": 39
  },
  {
   "name": "Abacus",
   "country": "Switzerland",
   "ats": "greenhouse",
   "slug": "abacus",
-  "jobs": 45
+  "jobs": 47
  },
  {
   "name": "Quantum Basel",
@@ -2482,21 +2405,21 @@
   "country": "Austria",
   "ats": "greenhouse",
   "slug": "bitpanda",
-  "jobs": 32
+  "jobs": 43
  },
  {
   "name": "Refurbed",
   "country": "Austria",
   "ats": "greenhouse",
   "slug": "refurbed",
-  "jobs": 12
+  "jobs": 13
  },
  {
   "name": "Storyblok",
   "country": "Austria",
   "ats": "greenhouse",
   "slug": "storyblok",
-  "jobs": 14
+  "jobs": 11
  },
  {
   "name": "Hokify",
@@ -2517,14 +2440,14 @@
   "country": "Austria",
   "ats": "greenhouse",
   "slug": "bitmovin",
-  "jobs": 12
+  "jobs": 11
  },
  {
   "name": "Prewave",
   "country": "Austria",
   "ats": "personio",
   "slug": "prewave",
-  "jobs": 9
+  "jobs": 8
  },
  {
   "name": "Fiskaly",
@@ -2552,63 +2475,63 @@
   "country": "Austria",
   "ats": "personio",
   "slug": "anybill",
-  "jobs": 3
+  "jobs": 4
  },
  {
   "name": "Cabify",
   "country": "Spain_Portugal",
   "ats": "greenhouse",
   "slug": "cabify",
-  "jobs": 57
+  "jobs": 51
  },
  {
   "name": "TravelPerk",
   "country": "Spain_Portugal",
   "ats": "ashby",
   "slug": "perk",
-  "jobs": 130
+  "jobs": 129
  },
  {
   "name": "Typeform",
   "country": "Spain_Portugal",
   "ats": "greenhouse",
   "slug": "typeform",
-  "jobs": 11
+  "jobs": 6
  },
  {
   "name": "Wallapop",
   "country": "Spain_Portugal",
   "ats": "greenhouse",
   "slug": "wallapop",
-  "jobs": 3
+  "jobs": 4
  },
  {
   "name": "Jobandtalent",
   "country": "Spain_Portugal",
   "ats": "lever",
   "slug": "jobandtalent",
-  "jobs": 39
+  "jobs": 38
  },
  {
-  "name": "Holded",
+  "name": "Sequra",
   "country": "Spain_Portugal",
   "ats": "recruitee",
-  "slug": "holded",
-  "jobs": 6
+  "slug": "sequra",
+  "jobs": 16
  },
  {
   "name": "Feedzai",
   "country": "Spain_Portugal",
   "ats": "greenhouse",
   "slug": "feedzai",
-  "jobs": 15
+  "jobs": 11
  },
  {
   "name": "Sword Health",
   "country": "Spain_Portugal",
   "ats": "greenhouse",
   "slug": "swordhealth",
-  "jobs": 61
+  "jobs": 72
  },
  {
   "name": "Remote",
@@ -2622,7 +2545,7 @@
   "country": "Spain_Portugal",
   "ats": "smartrecruiters",
   "slug": "jscrambler",
-  "jobs": 2
+  "jobs": 1
  },
  {
   "name": "Tonic App",
@@ -2636,14 +2559,14 @@
   "country": "Spain_Portugal",
   "ats": "greenhouse",
   "slug": "indiecampers",
-  "jobs": 582
+  "jobs": 584
  },
  {
   "name": "Anchorage",
   "country": "Spain_Portugal",
   "ats": "lever",
   "slug": "anchorage",
-  "jobs": 22
+  "jobs": 23
  },
  {
   "name": "Lodgify",
@@ -2657,7 +2580,7 @@
   "country": "Spain_Portugal",
   "ats": "ashby",
   "slug": "docplanner",
-  "jobs": 43
+  "jobs": 46
  },
  {
   "name": "Quibim",
@@ -2665,6 +2588,13 @@
   "ats": "personio",
   "slug": "quibim",
   "jobs": 2
+ },
+ {
+  "name": "Voicemod",
+  "country": "Spain_Portugal",
+  "ats": "ashby",
+  "slug": "voicemod",
+  "jobs": 1
  },
  {
   "name": "Deporvillage",
@@ -2678,14 +2608,14 @@
   "country": "Italy",
   "ats": "ashby",
   "slug": "satispay",
-  "jobs": 75
+  "jobs": 77
  },
  {
   "name": "Prima",
   "country": "Italy",
   "ats": "lever",
   "slug": "prima",
-  "jobs": 93
+  "jobs": 95
  },
  {
   "name": "Musixmatch",
@@ -2699,21 +2629,21 @@
   "country": "Belgium_Luxembourg",
   "ats": "greenhouse",
   "slug": "collibra",
-  "jobs": 18
+  "jobs": 24
  },
  {
   "name": "Showpad",
   "country": "Belgium_Luxembourg",
   "ats": "greenhouse",
   "slug": "showpad",
-  "jobs": 23
+  "jobs": 24
  },
  {
   "name": "Deliverect",
   "country": "Belgium_Luxembourg",
   "ats": "lever",
   "slug": "deliverect",
-  "jobs": 18
+  "jobs": 19
  },
  {
   "name": "Lighthouse",
@@ -2723,11 +2653,18 @@
   "jobs": 39
  },
  {
+  "name": "Aikido",
+  "country": "Belgium_Luxembourg",
+  "ats": "recruitee",
+  "slug": "aikidosecurity",
+  "jobs": 77
+ },
+ {
   "name": "Silverfin",
   "country": "Belgium_Luxembourg",
   "ats": "lever",
   "slug": "silverfin",
-  "jobs": 5
+  "jobs": 7
  },
  {
   "name": "Lalaland",
@@ -2737,18 +2674,18 @@
   "jobs": 2
  },
  {
-  "name": "Robovision",
-  "country": "Belgium_Luxembourg",
-  "ats": "recruitee",
-  "slug": "robovision",
-  "jobs": 1
- },
- {
   "name": "Keyrock",
   "country": "Belgium_Luxembourg",
   "ats": "ashby",
   "slug": "keyrock",
-  "jobs": 12
+  "jobs": 9
+ },
+ {
+  "name": "Payconiq",
+  "country": "Belgium_Luxembourg",
+  "ats": "recruitee",
+  "slug": "payconiq",
+  "jobs": 3
  },
  {
   "name": "Datacamp",
@@ -2758,11 +2695,18 @@
   "jobs": 40
  },
  {
+  "name": "Bizzy",
+  "country": "Belgium_Luxembourg",
+  "ats": "recruitee",
+  "slug": "bizzy",
+  "jobs": 2
+ },
+ {
   "name": "Salonkee",
   "country": "Belgium_Luxembourg",
   "ats": "ashby",
   "slug": "salonkee",
-  "jobs": 108
+  "jobs": 104
  },
  {
   "name": "Brainly",
@@ -2776,14 +2720,14 @@
   "country": "Poland_CEE_Balkans",
   "ats": "lever",
   "slug": "text",
-  "jobs": 6
+  "jobs": 7
  },
  {
   "name": "UiPath",
   "country": "Poland_CEE_Balkans",
   "ats": "ashby",
   "slug": "uipath",
-  "jobs": 103
+  "jobs": 104
  },
  {
   "name": "Ramp Network",
@@ -2797,14 +2741,14 @@
   "country": "Poland_CEE_Balkans",
   "ats": "ashby",
   "slug": "rohlik",
-  "jobs": 96
+  "jobs": 102
  },
  {
   "name": "Apify",
   "country": "Poland_CEE_Balkans",
   "ats": "ashby",
   "slug": "apify",
-  "jobs": 12
+  "jobs": 13
  },
  {
   "name": "Make",
@@ -2817,7 +2761,7 @@
   "name": "Kiwi.com",
   "country": "Poland_CEE_Balkans",
   "ats": "ashby",
-  "slug": "kiwi",
+  "slug": "kiwi-com",
   "jobs": 5
  },
  {
@@ -2825,35 +2769,28 @@
   "country": "Poland_CEE_Balkans",
   "ats": "greenhouse",
   "slug": "microblink",
-  "jobs": 5
+  "jobs": 7
  },
  {
   "name": "Toptal",
   "country": "Poland_CEE_Balkans",
   "ats": "lever",
   "slug": "toptal",
-  "jobs": 29
- },
- {
-  "name": "Twisto",
-  "country": "Poland_CEE_Balkans",
-  "ats": "recruitee",
-  "slug": "twisto",
-  "jobs": 2
+  "jobs": 31
  },
  {
   "name": "Emplifi",
   "country": "Poland_CEE_Balkans",
   "ats": "greenhouse",
   "slug": "emplifi",
-  "jobs": 7
+  "jobs": 6
  },
  {
   "name": "Ataccama",
   "country": "Poland_CEE_Balkans",
   "ats": "lever",
   "slug": "ataccama",
-  "jobs": 7
+  "jobs": 12
  },
  {
   "name": "Keboola",
@@ -2874,7 +2811,7 @@
   "country": "Poland_CEE_Balkans",
   "ats": "ashby",
   "slug": "zowie",
-  "jobs": 8
+  "jobs": 7
  },
  {
   "name": "Superside",
@@ -2895,21 +2832,28 @@
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "oyster",
-  "jobs": 24
+  "jobs": 19
  },
  {
   "name": "Zapier",
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "zapier",
-  "jobs": 11
+  "jobs": 10
  },
  {
   "name": "GitLab",
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "gitlab",
-  "jobs": 238
+  "jobs": 250
+ },
+ {
+  "name": "Buffer",
+  "country": "Global_Remote_First",
+  "ats": "ashby",
+  "slug": "buffer",
+  "jobs": 2
  },
  {
   "name": "Help Scout",
@@ -2923,21 +2867,21 @@
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "kraken.com",
-  "jobs": 88
+  "jobs": 89
  },
  {
   "name": "Consensys",
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "consensys",
-  "jobs": 13
+  "jobs": 12
  },
  {
   "name": "MoonPay",
   "country": "Global_Remote_First",
   "ats": "lever",
   "slug": "moonpay",
-  "jobs": 22
+  "jobs": 25
  },
  {
   "name": "Blockdaemon",
@@ -2993,28 +2937,28 @@
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "canonical",
-  "jobs": 314
+  "jobs": 316
  },
  {
   "name": "Mattermost",
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "mattermost",
-  "jobs": 10
+  "jobs": 11
  },
  {
   "name": "Posthog",
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "posthog",
-  "jobs": 11
+  "jobs": 10
  },
  {
   "name": "Supabase",
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "supabase",
-  "jobs": 68
+  "jobs": 70
  },
  {
   "name": "Airbyte",
@@ -3028,21 +2972,21 @@
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "grafanalabs",
-  "jobs": 120
+  "jobs": 134
  },
  {
   "name": "Tailscale",
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "tailscale",
-  "jobs": 58
+  "jobs": 76
  },
  {
   "name": "Vercel",
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "vercel",
-  "jobs": 91
+  "jobs": 87
  },
  {
   "name": "Mozilla",
@@ -3070,14 +3014,14 @@
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "turing",
-  "jobs": 40
+  "jobs": 47
  },
  {
   "name": "Andela",
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "andela",
-  "jobs": 14
+  "jobs": 8
  },
  {
   "name": "A.Team",
@@ -3091,7 +3035,7 @@
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "hopper",
-  "jobs": 18
+  "jobs": 21
  },
  {
   "name": "Hubstaff",
@@ -3103,23 +3047,23 @@
  {
   "name": "Time Doctor",
   "country": "Global_Remote_First",
-  "ats": "smartrecruiters",
+  "ats": "recruitee",
   "slug": "timedoctor",
-  "jobs": 2
+  "jobs": 3
  },
  {
   "name": "Lemon.io",
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "lemon-io",
-  "jobs": 5
+  "jobs": 3
  },
  {
   "name": "Sticker Mule",
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "stickermule",
-  "jobs": 6
+  "jobs": 3
  },
  {
   "name": "Close",
@@ -3133,7 +3077,7 @@
   "country": "Global_Remote_First",
   "ats": "greenhouse",
   "slug": "customerio",
-  "jobs": 24
+  "jobs": 23
  },
  {
   "name": "Articulate",
@@ -3161,56 +3105,56 @@
   "country": "Global_Remote_First",
   "ats": "ashby",
   "slug": "temporal",
-  "jobs": 75
+  "jobs": 81
  },
  {
   "name": "Canva",
   "country": "Australia",
   "ats": "smartrecruiters",
   "slug": "canva",
-  "jobs": 62
+  "jobs": 36
  },
  {
   "name": "Airwallex",
   "country": "Australia",
   "ats": "ashby",
   "slug": "airwallex",
-  "jobs": 488
+  "jobs": 494
  },
  {
   "name": "Culture Amp",
   "country": "Australia",
   "ats": "greenhouse",
   "slug": "cultureamp",
-  "jobs": 33
+  "jobs": 30
  },
  {
   "name": "Deputy",
   "country": "Australia",
   "ats": "lever",
   "slug": "deputy",
-  "jobs": 6
+  "jobs": 2
  },
  {
   "name": "Eucalyptus",
   "country": "Australia",
   "ats": "greenhouse",
   "slug": "eucalyptus",
-  "jobs": 98
+  "jobs": 96
  },
  {
   "name": "Airtasker",
   "country": "Australia",
   "ats": "ashby",
   "slug": "airtasker",
-  "jobs": 1
+  "jobs": 2
  },
  {
   "name": "Zip",
   "country": "Australia",
   "ats": "ashby",
   "slug": "zip",
-  "jobs": 100
+  "jobs": 96
  },
  {
   "name": "Relevance AI",
@@ -3224,7 +3168,7 @@
   "country": "Australia",
   "ats": "ashby",
   "slug": "lorikeet",
-  "jobs": 14
+  "jobs": 16
  },
  {
   "name": "Buildkite",
@@ -3238,7 +3182,7 @@
   "country": "Australia",
   "ats": "ashby",
   "slug": "siteminder",
-  "jobs": 24
+  "jobs": 20
  },
  {
   "name": "Brighte",
@@ -3252,7 +3196,7 @@
   "country": "Australia",
   "ats": "lever",
   "slug": "mable",
-  "jobs": 13
+  "jobs": 15
  },
  {
   "name": "Prospa",
@@ -3266,35 +3210,35 @@
   "country": "Australia",
   "ats": "smartrecruiters",
   "slug": "judobank",
-  "jobs": 24
+  "jobs": 22
  },
  {
   "name": "Octopus Deploy",
   "country": "Australia",
   "ats": "greenhouse",
   "slug": "octopusdeploy",
-  "jobs": 6
+  "jobs": 5
  },
  {
   "name": "Q-CTRL",
   "country": "Australia",
   "ats": "lever",
   "slug": "q-ctrl",
-  "jobs": 26
+  "jobs": 29
  },
  {
   "name": "Morse Micro",
   "country": "Australia",
   "ats": "ashby",
   "slug": "morse-micro",
-  "jobs": 6
+  "jobs": 5
  },
  {
   "name": "Dovetail",
   "country": "Australia",
   "ats": "ashby",
   "slug": "dovetail",
-  "jobs": 10
+  "jobs": 5
  },
  {
   "name": "Secure Code Warrior",
@@ -3325,18 +3269,25 @@
   "jobs": 1
  },
  {
+  "name": "Wisr",
+  "country": "Australia",
+  "ats": "lever",
+  "slug": "wisr",
+  "jobs": 1
+ },
+ {
   "name": "Plenti",
   "country": "Australia",
   "ats": "lever",
   "slug": "plenti",
-  "jobs": 11
+  "jobs": 8
  },
  {
   "name": "Splend",
   "country": "Australia",
   "ats": "lever",
   "slug": "splend",
-  "jobs": 11
+  "jobs": 8
  },
  {
   "name": "Jet Charge",
@@ -3357,35 +3308,35 @@
   "country": "Australia",
   "ats": "greenhouse",
   "slug": "cognitiv",
-  "jobs": 6
+  "jobs": 5
  },
  {
   "name": "Blinq",
   "country": "Australia",
   "ats": "lever",
   "slug": "blinq",
-  "jobs": 9
+  "jobs": 8
  },
  {
   "name": "Lyrebird Health",
   "country": "Australia",
   "ats": "ashby",
   "slug": "lyrebird-health",
-  "jobs": 10
+  "jobs": 11
  },
  {
   "name": "Neara",
   "country": "Australia",
   "ats": "ashby",
   "slug": "neara",
-  "jobs": 39
+  "jobs": 40
  },
  {
   "name": "Prezzee",
   "country": "Australia",
   "ats": "greenhouse",
   "slug": "prezzee",
-  "jobs": 10
+  "jobs": 11
  },
  {
   "name": "Enboarder",
@@ -3406,21 +3357,21 @@
   "country": "New_Zealand",
   "ats": "ashby",
   "slug": "xero",
-  "jobs": 112
+  "jobs": 104
  },
  {
   "name": "Halter",
   "country": "New_Zealand",
   "ats": "ashby",
   "slug": "halter",
-  "jobs": 270
+  "jobs": 258
  },
  {
   "name": "Rocket Lab",
   "country": "New_Zealand",
   "ats": "greenhouse",
   "slug": "rocketlab",
-  "jobs": 556
+  "jobs": 539
  },
  {
   "name": "Timely",
@@ -3434,14 +3385,14 @@
   "country": "New_Zealand",
   "ats": "greenhouse",
   "slug": "pushpay",
-  "jobs": 23
+  "jobs": 21
  },
  {
   "name": "Cin7",
   "country": "New_Zealand",
   "ats": "lever",
   "slug": "cin7",
-  "jobs": 5
+  "jobs": 13
  },
  {
   "name": "Tracksuit",
@@ -3476,6 +3427,6 @@
   "country": "New_Zealand",
   "ats": "ashby",
   "slug": "lightspeed",
-  "jobs": 8
+  "jobs": 10
  }
 ]
